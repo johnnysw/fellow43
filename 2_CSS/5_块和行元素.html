@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>块和行元素</title>
+    <style>
+        div, h1, p{
+            width: 200px;
+            height: 30px;
+            background: #ff0000;
+            display: inline;
+        }
+        span, a{
+            width: 200px;
+            height: 30px;
+            background: #00ff00;
+            display: block;
+        }
+
+        /* body{
+            margin: 0;
+        } */
+    </style>
+</head>
+<body>
+    <!-- 
+        块元素: 默认宽度为父元素的内容的宽度，可以设置宽和高，垂直分布
+    -->
+    <div>div</div>
+    <h1>h1</h1>
+    <p>p</p>
+
+    <!-- 
+        行元素：默认宽度是内容撑开的，不可以设置宽和高，水平分布
+     -->
+    <span>span</span>
+    <a href="#">链接</a>
+</body>
+</html>
