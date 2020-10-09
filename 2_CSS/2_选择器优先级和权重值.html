@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器优先级和权重值</title>
+    <!-- 外部样式 -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        /* 内部样式 */
+       /*  #h11{
+            color: #ff0000;
+        }
+        .aa{
+            color: #0000ff !important;
+        }
+        h1 {
+            color: #00ff00 !important;
+        } */
+
+        h1#h11{
+            color: #ff0000;
+        }
+        div.aa{
+            background: #ccc;
+        }
+
+       /*  #div1 .div2 h1{
+            color: #00ff00;
+        }
+        .div2 h1{
+            color: #ff0000;
+        }
+
+        #div2-2 h1{
+            color: #0000ff;
+        } */
+       
+        #div1 .div2  h1{
+            color: #ff0000;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 内联样式 -->
+    <!-- <h1 style="color: #0000ff;">这是一个标题</h1> -->
+    <h1 id="h11" class="aa">这是一个标题</h1>
+
+    <div id="h11" class="aa">aaaaa</div>
+
+    <div id="div1">
+        <h1>23</h1>
+        <div id="div2-2" class="div2">
+            <h1>这是又一个标题</h1>
+        </div>
+    </div>
+
+    <!-- 
+        内联样式 > 内部样式 > 外部样式
+
+        内联样式: 1000
+        id: 100
+        class: 10
+        tag: 1
+
+
+     -->
+</body>
+
+</html>
