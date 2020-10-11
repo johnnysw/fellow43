@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>如何让div充满整个浏览器</title>
+    <style>
+        /* html, body{
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #a{
+            background: #ff0000;
+            width: 100%;
+            height: 100%;
+        } */
+        body{
+            margin: 0;
+        }
+        #a{
+            background: #ff0000;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+        } 
+    </style>
+</head>
+<body>
+    <div id="a">aa</div>
+</body>
+</html>

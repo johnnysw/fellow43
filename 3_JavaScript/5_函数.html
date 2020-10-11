@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数</title>
+</head>
+
+<body>
+    <script>
+
+        /* function sayHello(name, age){//形参
+            console.log(name, age);
+        }
+        var d = sayHello("lisi", 12);//实参 */
+        // console.log(d); //undefined
+
+        /* function add(a, b){
+            return a + b;
+        }
+        var c = add(3, 4); */
+        // console.log(c);
+
+        // 函数声明: 函数提升
+        /* test();
+        function test(){
+            console.log('hehe');
+        } */
+
+        // 函数表达式
+        // 在js中函数是一个对象
+        /* var test = function(){
+            console.log('haha');
+        };
+        test(); */
+        // 函数式编程
+        function test(a) {
+            a(function (c) {
+                c();
+            });
+        }
+
+        /* test(function(b){
+            b(function(){
+                console.log('haha');
+            });
+        }); */
+
+        /* var fn1 = function(){
+            console.log('haha');
+        }; */
+
+        /* function test(a){
+            a(function(){
+                console.log('haha');
+            });
+        }
+
+        test(function(b){
+            b();
+        }); */
+
+        function test() {
+            return function (a, b) {
+                    return a + b;
+            };
+        }
+
+        var x = test();
+
+        console.log(test()(3,4));
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

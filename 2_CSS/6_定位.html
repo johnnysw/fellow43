@@ -4,8 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>定位</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            display: inline-block;
+        }
+        #a{
+            background: #ff0000;
+        }
+        
+        #b{
+            background: #00ff00;
+            /* 相对定位：相对自己的初始位置定位，原有空间不释放 */
+            /* position: relative;
+            left: 250px;
+            top: 250px; */
+            /* 绝对定位：相对于最近的已定位的祖先元素，如果没有最近的定准的祖先元素，相对于body，空间释放 */
+            position: absolute;
+            left: 50px;
+            top: 50px;
+            z-index: 0;
+        }
+        #c{
+            background: #0000ff;
+            position: relative;
+            z-index: 1;
+        }
+       
+        #outer{
+            width: 800px;
+            height: 400px;
+            background: #cccccc;
+            /* margin-left: 50px;
+            margin-top: 50px; */   
+            position: relative;
+            left: 50px;
+            top: 50px;
+        }
+    </style>
 </head>
 <body>
-    
+    <div id="outer">
+        <div id="a">
+            a
+        </div>
+        <div id="b">
+            b
+        </div>
+        <div id="c">
+            c
+        </div>
+    </div>
 </body>
 </html>

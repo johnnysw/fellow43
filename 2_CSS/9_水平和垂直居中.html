@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css常见技巧</title>
+    <style>
+        #outer{
+            width: 800px;
+            height: 200px;
+            background: #cccccc;
+            margin: 0 auto;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        #a{
+            width: 500px;
+            height: 80px;
+            background: #ff0000;
+            /* margin: 0 auto; */
+            position: absolute;
+            top: 50%;
+            margin-top: -40px;
+            left: 50%;
+            margin-left: -250px;
+        }
+        #outer2{
+            width: 800px;
+            height: 200px;
+            background: #cccccc;
+            text-align: center;
+            line-height: 200px;
+        }
+        #b{
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <div id="a"></div>
+    </div>
+
+    <div id="outer2">
+        <span id="b">span...</span>
+    </div>
+</body>
+</html>
