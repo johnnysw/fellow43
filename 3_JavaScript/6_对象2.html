@@ -1,0 +1,52 @@
+<script>
+    // 定义对象
+    // 1. new Object()
+    var o1 = new Object();
+    o1.name = "lisi";
+    // 2. {}对象直接量
+    var o2 = {
+        name: 'lisi'
+    };
+    // 3. Object.create();
+    // 4. new Constructor();
+    /* var fn = function () {
+        console.log(this.name, this.age);
+    }; */
+     // es5之前定义类，属性放在构造函数中，方法放在原型中
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    Person.prototype.sayHello = function () {
+        console.log('hello...');
+    };
+
+   /*  var p1 = new Person('lisi', 23);
+    var p2 = new Person('wangwu', 34); */
+
+    function Student(name, age){
+        // 继承Person中的属性
+        Person.call(this, name, age);
+    }
+    // Student.prototype = new Person();
+    // 寄生组合
+    // Student.prototype = Person.prototype;
+    Student.prototype = Object.create(Person.prototype);
+    Student.prototype.constructor = Student;
+ 
+    /* Student.prototype.study = function(){
+        console.log('study...');
+    }; */
+
+    var s1 = new Student("wangwu", 34);
+    // console.log(s1);
+    // s1.sayHello();
+
+    // var p1 = new Person('lisi', 23);
+    // p1.study();
+
+    console.log(      s1.constructor       );
+
+    
+</script>

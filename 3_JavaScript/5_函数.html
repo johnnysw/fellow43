@@ -8,6 +8,9 @@
 </head>
 
 <body>
+
+    <button id="btn">click me</button>
+
     <script>
 
         /* function sayHello(name, age){//形参
@@ -35,11 +38,11 @@
         };
         test(); */
         // 函数式编程
-        function test(a) {
+        /* function test(a) {
             a(function (c) {
                 c();
             });
-        }
+        } */
 
         /* test(function(b){
             b(function(){
@@ -61,7 +64,7 @@
             b();
         }); */
 
-        function test() {
+        /* function test() {
             return function (a, b) {
                     return a + b;
             };
@@ -71,6 +74,143 @@
 
         console.log(test()(3,4));
 
+        function test(){
+            function xx (a, b) {
+                    return a + b;
+            }
+            return xx;
+        } */
+
+        // test(); //=>xx
+        // xx(3,4);
+
+        // 作用域
+
+        /* var x = 5;
+        function test(){
+            var x = 6;
+            function test2(){
+                var x = 7;
+                console.log(x);
+            }
+            test2();
+        }
+        test(); */
+        // 在函数的内部使用var声明的变量是局部变量
+        /* var x = 6; //全局变量
+        function test(){
+            console.log(x);//变量提升
+            x = 5;
+            var y = 8; //局部变量
+        }
+        test();
+
+        console.log(x); */
+        /* var x = 5;
+        function test(){
+            console.log(x);
+            var x = 6; //在函数内部不加var声明的变量也是全局的
+        }
+        test();
+        console.log(x); */
+
+        //词法作用域: 指函数在定义(或声明)它们的作用域里运行，
+        //而不是在执行(或调用)它们的作用域里运行
+        /* var value = 1;
+
+        function foo() {
+            console.log(value);
+        }
+
+        function bar() {
+            var value = 2;
+            foo();
+        }
+
+        bar();  *///输出多少？  
+
+        /*  function test(name, age){
+             // arguments: 用来保存函数的所有的实参的数组
+             // console.log(arguments);
+             console.log(name, age, arguments[2]);
+         }
+         test('lisi', 23, '男'); */
+
+        // 10！阶乘
+        // 1*2*3*4....
+        // n=1 => 1
+        // n=2 => 2*1 => 2*1!
+        // n=3 => 3*2*1 => 3*2!
+
+
+        /* function fac(n){ //factorial阶乘
+            var num = 1;
+            for(var i=1; i<=n; i++){
+                num *= i;
+            }
+            return num;
+        }*/
+        /* function fac(n){
+            if (n == 1){
+                return 1;
+            }
+            return n * fac(n-1);
+            // 4 * fac(3)
+            // 3 * fac(2)
+            // 2 * fac(1)
+        } */
+
+        // console.log(fac(4)); 
+        // 求斐波那契数列
+        // 斐波那契数列：前两项都是1，以后的每一项都是前两项的和
+        // 1， 1， 2， 3， 5， 8
+
+        /* function fibo2(n){
+            if(n <= 2){
+                return 1;
+            }
+            return arguments.callee(n-1) + arguments.callee(n-2);
+        }
+
+        console.log(fibo2(6));
+ */
+
+        // 闭包: 在外部函数的内部声明内部函数，
+        // 在内部函数里引用了外部函数中的局部
+        // 变量，当外部函数调用完毕之后，局部变量不被释放
+        /* function fn1(){
+            var a = 5;
+            function fn2(){
+                return a;
+            }
+            return fn2;
+        }
+        var b = fn1();
+        console.log( b()  ); */
+
+        for (var i = 0; i < 3; i++) {
+            (function (index) {
+                setTimeout(function () {
+                    console.log(index);
+                }, (index+1)*1000);
+            })(i);
+        }
+
+        for (var i = 0; i < 3; i++) {
+            setTimeout(function () {
+                (function (index) {
+                    console.log(index);
+                })(i);
+            }, (i + 1) * 1000);
+        }
+
+        /* var btn = document.getElementById('btn');
+        btn.onclick = function(){
+            var str = 'haha';
+            setTimeout(function(){
+                console.log(str);
+            }, 2000);
+        }; */
 
 
 

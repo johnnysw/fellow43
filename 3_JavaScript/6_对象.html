@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象</title>
+</head>
+
+<body>
+    <button id="btn-start">开始游戏</button>
+    <script>
+        var a = 5;
+        var b = "abc";
+        var c = true;
+        // 对象：everything is object，一切皆对象
+        // 属性和方法
+        // 面向对象（object-oriented）
+        // OOA(analysis)：面向对象的分析
+        // OOD(design)：面向对象的设计
+        // OOP(programming)：面向对象的编程
+        // 定义对象
+        var obj = new Object();
+        obj.name = 'lisi';
+        obj.age = 23;
+        obj['gender'] = 'male';
+        obj.brother = { //literal直接量
+            name: 'lixx',
+            age: 34,
+            wife: {
+                name: 'zhangyy',
+                father: {
+                    name: 'zhangzz'
+                }
+            }
+        };
+        // var x = 'name';
+        obj.sayHello = function () {
+            // this指向当前对象
+            console.log(this.name + ', hello!');
+        };
+
+        // obj.sayHello();
+
+        // console.log(  obj[x]  );  //=>obj.name
+
+        // console.log( obj.brother.wife.name );
+
+        /* for(var prop  in  obj){
+            if(typeof obj[prop] == 'function'){
+                obj[prop]();
+            }else if(typeof obj[prop] == "object"){
+                for(var prop2 in obj[prop]){//obj.brother
+                    //obj[prop][prop2]=>obj.brother.name||age
+                    console.log(prop2 + "=" + obj[prop][prop2]);
+                }
+            }else{
+                console.log(prop + "=" + obj[prop]);
+            }
+        } */
+
+        // 递归遍历
+        /* function printObject(obj){
+            for(prop in obj){
+                if(typeof obj[prop] == 'function'){
+                    obj[prop]();
+                }else if(typeof obj[prop] == "object"){
+                    //递归调用
+                    printObject(obj[prop]);
+                }else{
+                    console.log(prop + "=" + obj[prop]);
+                }
+            }
+        }
+
+        printObject(obj); */
+
+        // 人到图书馆借书
+        // 人
+        //  属性：姓名、身份证
+
+        // 书
+        //  属性：书名、ISBN
+
+        // 图书馆
+        //  属性：馆名、地址
+
+        // 管理员
+        //  属性：
+        //  方法：登记()
+
+        /* var person1 = {
+            name: 'lisi',
+            idCard: '2345679'
+        };
+
+        var book1 = {
+            name: '大学英语四级',
+            ISBN: '098765432'
+        };
+
+        var library = {
+            name: '学府书店',
+            address: '学府路。。。'
+        };
+
+        var manager = {
+            regist: function(person, book){
+                console.log('姓名：'+person.name + ', 身份证：'+person.idCard + ", 书名："+ book.name + ", 书号：" + book.ISBN);
+            }
+        };
+
+        manager.regist(person1, book1); */
+
+        /*
+            1. 蛇
+
+            2. 食物
+
+            3. 草场
+
+            4. 游戏
+
+        */
+
+        /*var snake = {
+            direction: 'right',
+            speed: 1,
+            move: function(){
+                console.log('snake is moving...');
+            },
+            eat: function(){},
+            die: function(){}
+        };
+
+        var food = {
+            pos: {
+                left: 0,
+                top: 0
+            }
+        };
+
+        var ground = {
+            createFood: function(){
+
+            }
+        };
+
+        var game = {
+            start: function(){
+                snake.move();
+            },
+            stop: function(){},
+            paused: function(){}
+        };
+
+        var btnStart = document.getElementById('btn-start');
+        btnStart.onclick = function(){
+            game.start();
+        };*/
+
+        // Object.create() : es5
+
+        var o1 = {
+            name: 'lisi',
+            age: 23
+        };
+        // 方法创建一个新对象，使用现有的对象来提供新创建的对象的__proto__
+        // __proto__原型（链）：被设计出来的目的就是用来做继承
+        /* var o2 = Object.create(o1);
+
+        console.log(o2); */
+        // 类：具有相同的属性和方法的对象的集合
+        /* var fn = function () {
+            console.log(this.name);
+        }; */
+        // es5之前定义类，属性放在构造函数中，方法放在原型中
+        function Person(name, age) { //类
+            this.name = name;
+            this.age = age;
+            // this.sayHello = fn;
+        }
+        Person.prototype.sayHello = function () {
+            console.log(this.name, this.age);
+        }; 
+
+        var p1 = new Person('lisi', 23);//实例对象
+        // console.log(p1.name, p1.age);
+        p1.sayHello();
+        // var p2 = new Person('wangwu', 34);
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

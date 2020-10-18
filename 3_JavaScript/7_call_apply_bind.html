@@ -1,0 +1,24 @@
+<script>
+    function test(name, age){
+        console.log(this);
+        /* console.log(name);
+        console.log(age); */
+    }
+    // test('lisi');
+    // call的作用可以改变函数中的this指针，指向call的第一个参数
+    // test.call({name:'lisi'}, 'lisi', 23);
+    // test.apply({name:'wangwu'}, ['lisi', 23]);
+
+    /* var fn = test.bind({name:'zhaoliu'});
+    fn(); */
+    /* var fn = function(){
+        console.log('haha');
+    }; */
+    /* setTimeout(function(){
+        console.log(this);
+    }.bind({name:'lisi'}), 2000); */
+    var fn = function(){
+        console.log(this);
+    };
+    setTimeout(fn.bind({name:'lisi'}), 2000);
+</script>
