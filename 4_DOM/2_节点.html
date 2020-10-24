@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节点</title>
+</head>
+<body>
+    <h1 id="h11">这是一个标题</h1>
+    
+    <script>
+        var oH1 = document.getElementById('h11');
+        console.log(oH1.getAttributeNode('id').nodeType);
+        console.log(oH1.firstChild.nodeType);
+    </script>
+</body>
+</html>
