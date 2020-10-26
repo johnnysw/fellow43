@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom查找</title>
+</head>
+<body>
+    <button id="btn">点我</button>
+    <h1 id="btn">这是一个h1</h1>
+
+    <ul id="ul1">
+        <li>item 1</li>
+        <li class="item aa">item 2</li>
+        <li class="item bb">item 3</li>
+    </ul>
+
+    <ul id="ul2">
+        <li class="item">item 4</li>
+        <li>item 5</li>
+    </ul>
+
+    <script>
+        // 1. getElementById: 通过元素的id获取该元素对象
+        // var oBtn = document.getElementById('btn');
+
+        // 2. getElementsByTagName: 通过元素的标签名称获取元素
+        // var aLi = document.getElementsByTagName("li"); //aLi是伪数组
+        var oUl1 = document.getElementById('ul1');
+        var aLi = oUl1.getElementsByTagName("li");
+        // console.log(aLi);
+        // for(var i=0; i<aLi.length; i++){
+        //     console.log(aLi[i]);
+        // }
+
+        // 3. getElementsByClassName: 通过元素的class获取元素，该方法在IE8和之前的浏览器中不支持
+        // 封装自己的getElementsByClassName方法
+        /**
+         * 
+         * @param className 要查找的类的名称
+         * @param tagName 限定的标签名称
+         * @param context 搜索的上下文（搜索范围）
+         */
+        function getByClassName(className, tagName, context){
+            var elements = [];
+            context = context || document;
+            // 先检测一下当前浏览器是否支持getElementsByClassName，如果支持直接调用，否则调用后面自己的方法
+            if(document.getElementsByClassName){
+                elements = context.getElementsByClassName(className);
+            }else{
+                var arr = context.getElementsByTagName(tagName);
+                for(var i=0; i<arr.length; i++){
+                    // 此处需要使用正则来处理
+                    if(arr[i].className.indexOf(className) != -1){
+                        elements.push(arr[i]);
+                    }
+                }
+            }
+            return elements;
+        }
+
+        // var aLi = getByClassName('item', 'li', oUl1);
+
+        // var aLi = oUl1.getElementsByClassName('item');
+        // for(var i=0; i<aLi.length; i++){
+        //     aLi[i].style.background = 'red';
+        // }
+
+        // 4. querySelector || 5. querySelectorAll
+        // var oBtn = document.querySelector('#btn');
+        var aLi = document.querySelectorAll('.item');
+        for(var i=0; i<aLi.length; i++){
+            aLi[i].style.background = 'red';
+        }
+    </script>
+</body>
+</html>

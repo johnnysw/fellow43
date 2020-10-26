@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom遍历</title>
+</head>
+<body>
+    <h1 id="h11">这是一个h1</h1>
+    <p>这是一个p</p>
+
+    <div id="div1">
+        123456
+        <!-- 1234567 -->
+        <h1 id="h12">这是第二个h1</h1>
+        <p id="p2">这是第二个p</p>
+    </div>
+
+    <script>
+        var oH1 = document.getElementById('h11');
+        var oP2 = document.getElementById('p2');
+        // nextSibling|nextElementSibling
+        // console.log(oH1.nextSibling);
+
+        // 封装next方法，在所有浏览器中都可以返回下一个兄弟元素节点
+
+        function next(elem){
+            do{
+                elem = elem.nextSibling;
+            }while(elem && elem.nodeType != 1);
+            return elem;
+        }
+
+        // next(oP2).style.background = 'red';
+
+        var oDiv1 = document.getElementById('div1');
+        // firstChild|firstElementChild
+        // console.log(oDiv1.firstChild);
+
+        // 封装first方法，在所有的浏览器中都可以返回第一个元素孩子节点
+        function first(elem){
+            elem = elem.firstChild;
+            return elem && elem.nodeType != 1 ? next(elem) : elem;
+        }
+
+        first(oDiv1).style.background = 'red';
+    </script>
+</body>
+</html>
