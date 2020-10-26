@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6.7</title>
+</head>
+
+<body>
+  <h3>7.
+    斐波纳契（Fibonacci）数列的第一项是1，第二项是1，以后各项都是前两项的和。请按逆序在页面中显示斐波纳契数列前40项的值（即，如果计算出来的数列是1,1,2,3,5,8…，那么显示的顺序是…，8,5,3,2,1,1），并要求每行显示6个数。
+  </h3>
+  <script>
+    // 求波纳契数列的第几项是什么
+    function fibonacci(n) {
+      var fib1 = 1;
+      var fib2 = 1;
+      var temp = 0;
+      if (n == 1 || n == 2) return 1;
+      for (var i = 3; i <= n; i++) {
+        temp = fib1 + fib2;
+        fib1 = fib2;
+        fib2 = temp;
+      }
+      return temp;
+    }
+    var arr = [];
+    for (var i = 1; i <= 40; i++) {
+      arr.push(fibonacci(i));
+    }
+    arr.reverse();
+    console.log(arr);
+    for (var i = 0; i < arr.length; i++) {
+      if (i % 6 === 0) document.write('<br>');
+      document.write(arr[i] + ' ');
+    }
+  </script>
+</body>
+
+</html>

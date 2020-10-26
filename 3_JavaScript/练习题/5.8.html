@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5.8</title>
+</head>
+
+<body>
+  <p>
+    8. 编写函数，用下面的公式计算π的近似值。 在页面上输出当n=100，500，1000，10000时π的近似值。
+  </p>
+  <script>
+    function pi(n) {
+      var sum = 0;
+      var sign = 1;
+      for (var i = 1; i <= n; i++) {
+        sum += sign / (2 * i - 1);
+        sign *= -1;
+      }
+      return 4 * sum;
+    }
+    document.write(pi(100) + '<br>');
+    document.write(pi(500) + '<br>');
+    document.write(pi(1000) + '<br>');
+    document.write(pi(10000) + '<br>');
+  </script>
+</body>
+
+</html>

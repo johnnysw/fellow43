@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5.6</title>
+</head>
+
+<body>
+  <p>
+    6. 编写一个带一个参数（指定显示多少层星号“*”的函数，它在页面止输出的一个5层星号“*”图案类似。
+
+    其中，每行的星号“*”之间有一个空格间隔。
+
+  </p>
+  <script>
+    function fn(n) {
+      for (var i = 1; i <= n; i++) {
+        for (var j = 1; j <= (n - i); j++) {
+          document.write('&nbsp;')
+        }
+        for (var k = 1; k <= i; k++) {
+          document.write('* ')
+        }
+        document.write('<br>')
+      }
+    }
+    fn(10);
+  </script>
+</body>
+
+</html>

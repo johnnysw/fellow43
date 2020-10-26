@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4.8</title>
+</head>
+
+<body>
+  <p>8. 求所有满足条件的四位数ABCD，它是13的倍数，且第3位数加上第2位数等于第4位数（即：A=B+C）。（提示：对于四位数的整数x，通过Math.floor(x/1000)可求出第4位的数字，其他位数的提取也类似）
+  </p>
+  <script>
+    for (var i = 1000; i < 10000; i++) {
+      var A = Math.floor(i / 1000);
+      var B = Math.floor(i / 100) % 10
+      var C = Math.floor(i / 10) % 10
+      if (i % 13 == 0 && A == (B + C)) {
+        document.write(i);
+        document.write('<br>');
+      }
+    }
+    var num = 1234;
+    var A = Math.floor(num / 1000); // 1
+    var B = Math.floor(num / 100) % 10 //12  2
+    var C = Math.floor(num / 10) % 10 //123  3
+    console.log(A);
+    console.log(B);
+    console.log(C);
+  </script>
+</body>
+
+</html>

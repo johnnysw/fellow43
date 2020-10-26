@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4.4</title>
+</head>
+
+<body>
+  <p>4.编写程序，计算 1!+2!+3!+…..＋10！的结果。</p>
+  <script>
+    // 方案一
+    var sum = 0;
+
+    // function factorial(n) {
+    //   var result = 1
+    //   for (var i = 2; i <= n; i++) {
+    //     result *= i;
+    //   }
+    //   return result;
+    // }
+    // for (var i = 1; i <= 10; i++) {
+    //   sum += factorial(i);
+    // }
+    // console.log(sum);
+
+    // 方案二(递归)   递归：一定要有出口
+    // function factorial(n) {
+    //   if (n == 0 || n == 1) {
+    //     return 1
+    //   } else {
+    //     return n * factorial(n - 1)
+    //   }
+    // }
+    // for (var i = 1; i <= 10; i++) {
+    //   sum += factorial(i);
+    // }
+    // console.log(sum);
+
+    // 方案三 
+    var fac = 1;
+    for (var i = 1; i <= 10; i++) {
+      fac *= i;
+      sum += fac;
+    }
+    console.log(sum);
+  </script>
+</body>
+
+</html>
