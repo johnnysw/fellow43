@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="btn1" aa="bb">添加</button>
+  <button id="btn2">移除</button>
+  <button id="btn3">替换</button>
+  <button id="btn4">克隆</button>
+  <ul id="ul1">
+    <li>1111111111</li>
+  </ul>
+
+  <script>
+    var oBtn1 = document.getElementById('btn1');
+    var oUl1 = document.getElementById('ul1');
+    var oBtn2 = document.getElementById('btn2');
+    var oBtn3 = document.getElementById('btn3');
+    var oBtn4 = document.getElementById('btn4');
+
+    // appendChild
+    oBtn1.onclick = function () {
+      var oLi = document.createElement('li');
+      oLi.innerHTML = 'appendChild';
+      oUl1.appendChild(oLi);
+      console.log(oLi);
+    }
+
+    // removeChild
+    oBtn2.onclick = function () {
+      oUl1.removeChild(oUl1.lastElementChild)
+    }
+    // replaceChild
+    oBtn3.onclick = function () {
+      // var oLi = document.createElement('li');
+      // oLi.innerHTML = 'replaceChild';
+      // oUl1.replaceChild(oLi, oUl1.firstElementChild);
+
+      // var textNode = document.createTextNode('回去好好学习');
+      // var oLi = oUl1.firstElementChild;
+      // oLi.replaceChild(textNode, oLi.firstChild);
+
+      var oLi = oUl1.firstElementChild;
+      oLi.innerHTML = '回去一定一定要好好学习';
+    }
+
+    // cloneNode
+    oBtn4.onclick = function () {
+      var oLi = oUl1.firstElementChild;
+      var oLi1 = oLi.cloneNode(true);
+      oUl1.appendChild(oLi1);
+    }
+
+
+    console.log(oBtn1.id); //btn1 
+    oBtn1.id = 'hahahhahahhaa';
+    console.log(oBtn1.id); //btn1 hahahhahahhaa
+
+
+
+    // 对象属性：对象属性不能在dom看到
+    oBtn1.cc = 'dd';
+    console.log(oBtn1.cc);
+
+    // 自定义dom属性：不能通过对象属性的方式获取到
+    console.log(oBtn1.aa); //undefined
+
+    // setAttribute， getAttribute
+    oBtn1.setAttribute('ee', 'ff');
+    console.log(oBtn1.getAttribute('aa'));;
+  </script>
+</body>
+
+</html>

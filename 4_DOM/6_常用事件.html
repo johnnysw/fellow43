@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #div1 {
+      width: 200px;
+      height: 200px;
+      background: #ff0000;
+    }
+  </style>
+</head>
+
+<body>
+  <p>
+    <input id="ipt1" type="text" value="请输入名字">
+  </p>
+  <p>
+    <select name="" id="sex">
+      <option value="male">男</option>
+      <option value="female">女</option>
+    </select>
+  </p>
+  <p>
+    <input type="text" id="search">
+  </p>
+  <button id="btn1">click</button>
+  <div id="div1"></div>
+  <form id="username" action="https://www.baidu.com">
+    <input type="text" name="username" id="">
+    <button type="submit">提交</button>
+  </form>
+  <script>
+    // focus  |  blur
+    var oIpt1 = document.getElementById('ipt1');
+    oIpt1.onfocus = function () {
+      if (oIpt1.value == '请输入名字') {
+        oIpt1.value = '';
+      }
+    }
+    oIpt1.onblur = function () {
+      if (oIpt1.value == '') {
+        oIpt1.value = '请输入名字';
+      }
+    }
+
+    // change
+    var oSex = document.getElementById('sex');
+    oSex.onchange = function () {
+      console.log(this.value);
+    }
+    // keydown  keyup
+    var oSearch = document.getElementById('search');
+
+    // oSearch.onkeydown = function () {
+    //   console.log(this.value);
+    // }
+
+    oSearch.onkeyup = function () {
+      console.log(this.value);
+    }
+
+    // mouseover   |   mouseout  |   mousemove 
+    var oDiv1 = document.getElementById('div1');
+    // oDiv1.onmouseover = function () {
+    //   console.log('我进去了');
+    // }
+    // oDiv1.onmouseout = function () {
+    //   console.log('我chu去了');
+    // }
+    // oDiv1.onmousemove = function () {
+    //   console.log(9999);
+    // }
+    // 
+
+    //  mousedown  |  mouseup  |   click 
+    oDiv1.onmousedown = function () {
+      console.log('按下');
+    }
+    oDiv1.onmouseup = function () {
+      console.log('抬起');
+    }
+    var oBtn1 = document.getElementById('btn1');
+    oBtn1.onclick = function () {
+      console.log('click');
+    }
+
+    var oForm = document.getElementById('username');
+    oForm.onsubmit = function () {
+      console.log(888);
+      return false;
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    对于事件，我们主要就研究这三个名词：
+      事件源：该事件是由哪个元素触发的
+      事件处理函数：如何处理这个事件的函数（当你触发了这个事件以后具体要做什么）
+      事件对象：该对象包含了跟这个事件有关的所有信息
+   -->
+  <button id="btn1">点我点我</button>
+  <script>
+    var oBtn1 = document.getElementById('btn1');
+    oBtn1.onclick = function (e) {
+      // e | event
+      console.log('11111');
+      console.log(e);
+    }
+    // 绑定事件的方法  on+事件名  , addEventListener
+    oBtn1.onclick = function () {
+      console.log(22222);
+    }
+
+    oBtn1.addEventListener('click', function () {
+      console.log(333);
+    }, false);
+
+    var fn = function () {
+      console.log(444);
+    }
+
+    oBtn1.addEventListener('click', fn, false);
+
+    oBtn1.removeEventListener('click', fn, false);
+  </script>
+</body>
+
+</html>
