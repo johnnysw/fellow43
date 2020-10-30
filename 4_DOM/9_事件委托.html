@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="btn1">添加</button>
+  <ul id="ul1">
+    <li>001</li>
+    <li>002</li>
+    <li>003</li>
+  </ul>
+
+  <script>
+    var oUl1 = document.getElementById('ul1');
+    var aLi = oUl1.getElementsByTagName('li');
+    var oBtn1 = document.getElementById('btn1');
+    console.log(aLi);
+
+    oBtn1.onclick = function () {
+      var oLi = document.createElement('li');
+      oLi.innerHTML = Math.random();
+      oUl1.appendChild(oLi);
+
+    }
+    // for (var i = 0; i < aLi.length; i++) {
+    //   aLi[i].onclick = function (e) {
+    //     console.log(this.innerHTML);
+    //   }
+    // }
+    oUl1.onclick = function (e) {
+      e = e || window.event;
+      var target = e.target || e.srcElement;
+      console.log(target.innerHTML);
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #div1 {
+      background: #ff0000;
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="div1"></div>
+  <a id="go" href="https://www.baidu.com">跳转啦</a>
+  <script>
+    var oDiv1 = document.getElementById('div1');
+    // clientX | clientY
+    oDiv1.onclick = function (e) {
+      // console.log(e);
+      console.log(e.clientX);
+      console.log(e.clientY);
+    }
+    // keyCode
+    document.onkeydown = function (e) {
+      console.log(e.keyCode);
+    }
+    // preventDefault
+    var oA = document.getElementById('go');
+    oA.onclick = function (e) {
+      e.preventDefault();
+    }
+  </script>
+</body>
+
+</html>

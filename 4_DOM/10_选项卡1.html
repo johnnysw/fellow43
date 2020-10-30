@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #container {
+      width: 300px;
+      height: 500px;
+      margin: 50px auto;
+    }
+
+    #menu {
+      height: 40px;
+      width: 300px;
+      padding: 0;
+      border-bottom: 1px solid #000;
+      margin: 0;
+    }
+
+    li {
+      list-style: none;
+      float: left;
+      width: 100px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      background: #cccccc;
+    }
+
+    li.active {
+      color: #ffffff;
+      background: #000;
+    }
+
+    #content div {
+      background: #cccccc;
+      height: 200px;
+      display: none;
+    }
+
+    #content div:first-child {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <ul id="menu">
+      <li class="active">菜单1</li>
+      <li>菜单2</li>
+      <li>菜单3</li>
+    </ul>
+    <div id="content">
+      <div>00000000000011</div>
+      <div>00000000000022</div>
+      <div>00000000000033</div>
+    </div>
+  </div>
+  <script>
+    var oMenu = document.getElementById('menu');
+    var aLi = oMenu.getElementsByTagName('li');
+    var oContent = document.getElementById('content');
+    var aDiv = oContent.getElementsByTagName('div');
+    for (var i = 0; i < aLi.length; i++) {
+      aLi[i].index = i;
+      aLi[i].onclick = function () {
+        // 清空class , display都设置为none
+        for (var j = 0; j < aLi.length; j++) {
+          aLi[j].className = '';
+          aDiv[j].style.display = 'none';
+        }
+        // 点谁给谁加class , 给点的设置为block
+        aLi[this.index].className = 'active';
+        aDiv[this.index].style.display = 'block';
+
+      }
+    }
+  </script>
+</body>
+
+</html>
