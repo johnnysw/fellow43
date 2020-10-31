@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>轮播图</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    #container {
+      width: 750px;
+      margin: 50px auto;
+      position: relative;
+      height: 291px;
+      overflow: hidden;
+    }
+
+    #img-box {
+      width: calc(750px * 5);
+      position: absolute;
+      left: 0;
+      transition: ease 1s left;
+    }
+
+    #img-box img {
+      float: left;
+    }
+
+    #img-box img:first-child {
+      display: block;
+    }
+
+    #tab {
+      position: absolute;
+      right: 50px;
+      bottom: 40px;
+    }
+
+    #tab li {
+      width: 20px;
+      height: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      text-align: center;
+      line-height: 20px;
+      color: #ffffff;
+      float: left;
+      margin-right: 5px;
+    }
+
+    #tab li.active {
+      background: rgba(255, 0, 0, 0.8);
+    }
+
+    .btn {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      background: rgba(0, 0, 0, 0.6);
+      color: #ffffff;
+      font-size: 50px;
+      text-align: center;
+      line-height: 40px;
+      position: absolute;
+      top: 50%;
+      margin-top: -25px;
+      /* top: calc(50% - 25px); */
+      /* transform: translateY(-50%); */
+    }
+
+    #prev {
+      left: 0;
+    }
+
+    #next {
+      right: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <div id="img-box">
+      <img src="imgs/1.jpg" alt="">
+      <img src="imgs/2.jpg" alt="">
+      <img src="imgs/3.jpg" alt="">
+      <img src="imgs/4.jpg" alt="">
+      <img src="imgs/5.jpg" alt="">
+    </div>
+
+    <ul id="tab">
+      <li class="active">1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+    </ul>
+
+    <span class="btn" id="prev">&lt;</span>
+    <span class="btn" id="next">&gt;</span>
+  </div>
+  <script>
+    var oContainer = document.getElementById('container');
+    var oTab = document.getElementById('tab');
+    var oImgBox = document.getElementById('img-box');
+
+    var aLi = oTab.getElementsByTagName('li');
+    var aImg = oImgBox.getElementsByTagName('img');
+
+    var oPrev = document.getElementById('prev');
+    var oNext = document.getElementById('next');
+
+    var curIndex = 0;
+
+    function changImg() {
+      // 清空所有的class
+      for (var j = 0; j < aLi.length; j++) {
+        aLi[j].className = '';
+      }
+      aLi[curIndex].className = 'active';
+      oImgBox.style.left = -750 * curIndex + 'px';
+    }
+
+    for (var i = 0; i < aLi.length; i++) {
+      aLi[i].index = i;
+      aLi[i].onclick = function () {
+        curIndex = this.index;
+        changImg()
+      }
+    }
+
+    oNext.onclick = function () {
+      curIndex++;
+      if (curIndex > 4) {
+        curIndex = 0;
+      }
+      changImg()
+    }
+    oPrev.onclick = function () {
+      curIndex--;
+      if (curIndex < 0) {
+        curIndex = 4;
+      }
+      changImg()
+    }
+    var timer;
+
+    function go() {
+      timer = setInterval(function () {
+        oNext.onclick();
+      }, 1000);
+    }
+    go()
+    oContainer.onmouseover = function () {
+      clearInterval(timer);
+    }
+    oContainer.onmouseout = function () {
+      go()
+    }
+  </script>
+</body>
+
+</html>
