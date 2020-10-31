@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 
+    #box1 {
+      position: relative;
+      left: 20px;
+      width: 500px;
+      height: 500px;
+      background: sienna;
+    } */
+
+    #div1 {
+      width: 200px;
+      height: 200px;
+      background: seagreen;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box1">
+
+    <div id="div1"></div>
+  </div>
+  <script>
+    var oDiv1 = document.getElementById('div1');
+    oDiv1.onmousedown = function (e) {
+      var left = oDiv1.offsetLeft;
+      var top = oDiv1.offsetTop;
+      var x = e.clientX;
+      var y = e.clientY;
+      document.onmousemove = function (e) {
+        oDiv1.style.left = e.clientX - x + left + 'px';
+        oDiv1.style.top = e.clientY - y + top + 'px';
+      }
+    }
+    oDiv1.onmouseup = function () {
+      document.onmousemove = null;
+    }
+
+    console.log(oDiv1.offsetWidth); //获取元素的宽度
+    console.log(oDiv1.offsetLeft); //获取元素的left值
+  </script>
+</body>
+
+</html>
