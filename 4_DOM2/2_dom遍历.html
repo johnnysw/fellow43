@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1">
+        <p id="p1">1234567</p>
+        <p>7654321</p>
+    </div>
+    <script>
+        var oDiv1 = document.getElementById('div1');
+        var oP1 = document.getElementById('p1');
+
+        //1、 nextSibling|nextElementSibling(ie8以下不兼容)
+        function next(elem) {
+            do {
+                elem = elem.nextSibling;
+            } while (elem && elem.nodeType != 1);
+            return elem
+        }
+        var o1 = next(oP1);
+        // var o1 = oP1.nextElementSibling;
+        o1.style.background = 'red';
+        console.log(next(oP1));
+
+        // 1、firstChild | firstElementChild 
+
+        console.log(oDiv1.firstChild);  //#text  (回车)
+        console.log(oDiv1.firstElementChild);  //
+        function firstC(elem) {
+            elem = elem.firstChild;
+            return elem && elem.nodeType != 1 ? next(elem) : elem
+        }
+        var o2 = firstC(oDiv1);
+        o2.style.background = 'blue';
+
+
+    </script>
+</body>
+
+</html>
