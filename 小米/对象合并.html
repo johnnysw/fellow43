@@ -1,0 +1,46 @@
+<script>
+    var obj1 = {
+        name: 'lisi',
+        age: 23
+    };
+
+    var obj2 = {
+        name: 'wangwu',
+        gender: '男',
+        brother: {
+            name: 'wangxx'
+        },
+        xx: [3,4,5]
+    };
+
+    /**
+     * 将obj对象中的属性复制给target
+     */
+    function extend(target, obj){
+        for(var p in obj){
+            if(typeof obj[p] == 'object'){
+                target[p] = extend(obj[p].constructor == Array ? [] : {}, obj[p]);
+            }else{
+                target[p] = obj[p];
+            }
+        }
+        return target;
+    }
+
+    extend(obj1, obj2);
+
+    console.log(obj1);
+
+    obj1.xx[0] = 8;
+    console.log(obj2.xx);
+
+    
+
+    
+
+    /* obj1.brother.name = 'zhaoliu';
+
+    console.log(obj2.brother.name); */
+
+
+</script>
