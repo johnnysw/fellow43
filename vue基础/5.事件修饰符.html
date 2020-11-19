@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #div1 {
+      width: 200px;
+      height: 200px;
+      background: #ff0000;
+    }
+
+    #div2 {
+      width: 100px;
+      height: 100px;
+      background: #00ff00;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div id="div1" @click="fn1">
+      <div id="div2" @click.stop.once="fn2"></div>
+    </div>
+    <a href="http://www.baidu.com" @click.prevent="go">跳转</a>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: "#app",
+      data: {
+
+      },
+      methods: {
+        fn1() {
+          console.log('div1');
+        },
+        fn2() {
+          console.log('div2');
+        },
+        go() {
+          console.log('😔');
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>

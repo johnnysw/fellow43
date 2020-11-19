@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vue的使用</title>
+</head>
+
+<body>
+  <div id="app">
+    {{ msg }}
+    msg
+  </div>
+  <div id="container">
+    {{ msg }}
+  </div>
+  <!-- vue的引入 -->
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      // 挂载vue（规定vue的作用域）
+      el: '#app',
+      // 声明要绑定的数据
+      data: {
+        msg: 'hello world'
+      }
+    })
+  </script>
+</body>
+
+</html>

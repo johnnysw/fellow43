@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <p>
+      <input v-model="str" type="text" name="" id="">
+    </p>
+    <p>
+      <input type="checkbox" v-model="fruit" value="apple">🍎
+      <input type="checkbox" v-model="fruit" value="pear">🍐
+      <input type="checkbox" v-model="fruit" value="banana">🍌
+    </p>
+    <p>
+      <input type="radio" v-model="sex" value="male">男
+      <input type="radio" v-model="sex" value="female">女
+    </p>
+    <p>
+      <select v-model="city">
+        <option value="哈">哈尔滨</option>
+        <option value="齐">齐齐哈尔</option>
+        <option value="牡">牡丹江</option>
+        <option value="佳">佳木斯</option>
+      </select>
+    </p>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        str: '',
+        fruit: [],
+        sex: 'female',
+        city:'齐',
+
+      },
+      methods: {
+
+      },
+    })
+  </script>
+</body>
+
+</html>

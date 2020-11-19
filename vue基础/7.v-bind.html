@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .div1 {
+      background: #666666;
+    }
+
+    .div2 {
+      color: red
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="div1 div2">11111111</div>
+    <div v-bind:class="{ div1:isDiv1,div2:isDiv2 }">22222222</div>
+    <div :class="{ div1:isDiv1,div2:isDiv2 }">33333333</div>
+    <div :class="[ 'aa' , isDiv1? 'div1':'' ]">44444444444</div>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        isDiv1: true,
+        isDiv2: false,
+      },
+      methods: {
+
+      },
+    })
+  </script>
+</body>
+
+</html>

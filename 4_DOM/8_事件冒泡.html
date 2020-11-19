@@ -40,14 +40,14 @@
 
     oDiv1.addEventListener('click', function () {
       console.log(111);
-    }, false);
+    }, true);
     oDiv2.addEventListener('click', function () {
       console.log(222);
-    }, false);
+    }, true);
     oDiv3.addEventListener('click', function (e) {
       console.log(333);
       e.stopPropagation();
-    }, false);
+    }, true);
     // 事件冒泡：从里往外触发 ，  3  2  1   false
     // 事件捕获：从外往里触发 ，  1  2  3   true
     
