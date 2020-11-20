@@ -1,0 +1,222 @@
+/* header 开始 */
+/* 样式重置 css reset */
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font: 14px "HanHei SC", "PingFang SC", "Avenir Next", Avenir, "Helvetica Neue", Helvetica, "Lantinghei SC", "Hiragino Sans GB", "Microsoft YaHei", 微软雅黑, STHeiti, "WenQuanYi Micro Hei", SimSun, sans-serif;
+  }
+  
+  button {
+    font: 14px "HanHei SC", "PingFang SC", "Avenir Next", Avenir, "Helvetica Neue", Helvetica, "Lantinghei SC", "Hiragino Sans GB", "Microsoft YaHei", 微软雅黑, STHeiti, "WenQuanYi Micro Hei", SimSun, sans-serif;
+  }
+  
+  ul,
+  li {
+    list-style: none;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  .clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  
+  .wrapper {
+    width: 1200px;
+    margin: 0 auto;
+  }
+  
+  header {
+    background: #333333;
+    height: 40px;
+    color: #ffffff;
+    font-size: 12px;
+  
+  }
+  
+  header .link-list {}
+  
+  header li {
+    float: left;
+    line-height: 40px;
+  }
+  
+  header .login {
+    float: right;
+  }
+  
+  header a {
+    color: #ffffff;
+  }
+  
+  header span {
+    margin: 0 6px;
+  }
+  
+  /* header 结束 */
+  
+  /* nav 开始 */
+  nav {
+    height: 100px;
+  }
+  
+  nav img {
+    width: 187px;
+    height: 55px;
+    margin-top: 23px;
+  }
+  
+  .nav-list {
+    float: right;
+    margin-top: 29px;
+    margin-right: -23px;
+  }
+  
+  .nav-list .nav-item {
+    float: left;
+    padding: 0 23px;
+    position: relative;
+  }
+  
+  .nav-list .sub-toggle {
+    padding-bottom: 20px;
+  }
+  
+  .nav-list .sub-toggle:hover+.sub-list {
+    display: block;
+  }
+  
+  .nav-list .sub-list {
+    background: #ffffff;
+    width: 150px;
+    height: 80px;
+    padding: 10px 0;
+    border: 1px solid#E5E5E5;
+    position: absolute;
+    left: -31px;
+    top: 47px;
+    display: none;
+    border-radius: 2px;
+  }
+  
+  .nav-list .sub-list:hover {
+    display: block;
+  }
+  
+  .nav-list .sub-list::before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    background: #ffffff;
+    border: 1px solid#E5E5E5;
+    transform: rotate(45deg);
+    position: absolute;
+    top: -5px;
+    left: 72px;
+    border-bottom: transparent;
+    border-right: transparent;
+  }
+  
+  .nav-list .sub-item a {
+    font-size: 16px;
+  }
+  
+  nav a {
+    color: #212121;
+    font-size: 18px;
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+  }
+  
+  nav .sub-link:hover {
+    background: #eeeeee;
+  }
+  
+  nav a:hover {
+    color: #e94400;
+  }
+  
+  /* nav 结束 */
+
+  /* footer 开始 */
+
+footer {
+    padding-bottom: 45px;
+  }
+  
+  .footer-left {
+    float: left;
+    margin-top: 100px;
+  }
+  
+  .footer-left img {
+    width: 46px;
+    height: 46px;
+    float: left;
+    margin-right: 8px;
+  }
+  
+  .footer-content {
+    float: left;
+  }
+  
+  footer .link-list {
+    margin-bottom: 10px;
+    margin-top: 3px;
+  }
+  
+  .footer-content .link-list a {
+    color: #575757;
+    font-size: 14px;
+    display: inline-block;
+    height: 14px;
+  }
+  
+  .footer-content li {
+    float: left;
+    border-right: 1px solid #575757;
+    height: 14px;
+    line-height: 14px;
+    padding: 0 8px;
+  }
+  
+  .footer-content li:last-child {
+    border: none;
+  }
+  
+  .copyright {
+    font-size: 12px;
+    color: #6d6d6d;
+  }
+  
+  .footer-right {
+    float: right;
+    color: #575757;
+    margin-top: 81px;
+  }
+  
+  .footer-right .desc {
+    font-size: 14px;
+  }
+  
+  .footer-right .tel {
+    font-size: 26px;
+    color: #E84519;
+  }
+  
+  .footer-right .time {
+    font-size: 12px;
+  }
+  
+  /* footer 结束 */

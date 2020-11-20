@@ -1,0 +1,41 @@
+<script>
+    // 创建对象
+    var o1 = new Object();
+    o1.name = 'lisi';
+    o1.sayHello = function () {
+
+    };
+
+    var o2 = {
+        name: 'wangwu',
+        sayHi: function () {
+
+        }
+    };
+
+    // 创建类
+    // es6(ECMAScript 2015)中的语法
+    /* class Person{
+        name;
+        constructor(name){
+            this.name = name;
+        }
+        sayHello(){
+
+        }
+    }
+
+    var p1 = new Person('lisi');
+    console.log(p1.name); */
+
+    function Person(name) {
+        this.name = name;
+    }
+    Person.prototype.sayHello = function () {
+        console.log(this.name);
+    };
+
+    var p2 = new Person('wangwu');
+    console.log(p2.name);
+
+</script>

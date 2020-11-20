@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #bnt1 {
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="bnt1">按钮1</button>
+    <ul id="ul1">
+        <li>0001</li>
+        <li class="myli item">0002</li>
+        <li class="myli">0003</li>
+    </ul>
+
+    <ul id="ul2">
+        <li>11</li>
+        <li>22</li>
+    </ul>
+
+    <ul id="ul3">
+        <li class="item">11</li>
+        <li class="item">22</li>
+        <li>33</li>
+    </ul>
+
+    <script>
+        // 1.id选择器
+        var oBtn1 = document.getElementById('bnt1');
+        oBtn1.style.backgroundColor = 'blue';
+        console.log(oBtn1);
+        // 2、class 选择器(ie8以下版本不兼容)
+        // var aMLi = document.getElementsByClassName('myli');
+        var oUl1 = document.getElementById('ul1');
+        var aMLi = getByClassName('myli', 'li');
+        for (var i = 0; i < aMLi.length; i++) {
+            aMLi[i].style.backgroundColor = 'blue';
+        }
+        console.log(aMLi);
+        // 3、标签选择器
+        var arr = [1, 2, 3];
+        var aLi = document.getElementsByTagName('li'); //伪数组
+        var oUl2 = document.getElementById('ul2');
+        // var aLi = oUl2.getElementsByTagName('li');
+        console.log(aLi[1].className);
+
+
+
+        function getByClassName(className1, tagName, context) {
+            var elements = [];
+            context = context || document;
+            if (context.getElementsByClassName) {
+                // 如果是标准浏览器，就用getElementsByClassName
+                elements = context.getElementsByClassName(className1)
+            } else {
+                // 如果是ie8以下的，就用自己封装的
+                var arr = context.getElementsByTagName(tagName)
+                for (var i = 0; i < arr.length; i++) {
+                    if (arr[i].className.indexOf(className1) != -1) {
+                        elements.push(arr[i]);
+                    }
+                }
+            }
+            return elements;
+        }
+        console.log(getByClassName);
+        // 4、
+        var oUl3 = document.querySelector('#ul3');
+        // 5、
+        var aLi6 = document.querySelectorAll('#ul3 .item');
+        // var aLi6 = document.querySelector('#ul3 .item');
+        console.log(aLi6);
+
+        console.log(oUl3);
+    </script>
+</body>
+
+</html>

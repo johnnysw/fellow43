@@ -1,0 +1,113 @@
+
+
+/* banner 开始 */
+
+#banner {
+  height: 640px;
+  background: url(../images/banner.jpg) center;
+  /* 用来解决外边距合并的问题 */
+  /* overflow: hidden; */
+  text-align: center;
+}
+
+#banner h2 {
+  font-size: 54px;
+  color: #ffffff;
+  font-weight: 300;
+  padding-top: 193px;
+}
+
+#banner button {
+  color: #fff;
+  font-size: 24px;
+  background: #F93F2B;
+  width: 260px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 5px;
+  border: none;
+  margin-top: 36px;
+  outline: none;
+}
+
+#banner button:hover {
+  background: #df3a28;
+  cursor: pointer;
+}
+
+/* banner 结束 */
+
+/* main 开始 */
+
+main.wrapper {
+  height: 469px;
+  border: 1px solid #E6E6E6;
+  margin-top: -80px;
+  background: #ffffff;
+}
+
+.info-item {
+  margin: 30px;
+  width: 360px;
+  float: left;
+  margin-right: 0;
+}
+
+.info-item a {
+  font-size: 16px;
+  color: #666666;
+}
+
+.info-item .info-img {
+  background: url(../images/bg1.png);
+  width: 360px;
+  height: 180px;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.info-item .info-img.img-blue {
+  background-image: url(../images/bg2.png);
+}
+
+.info-item .info-img.img-blue+ul span {
+  color: #4481C8;
+}
+
+.info-item .info-img p {
+  font-size: 33px;
+  color: #ffffff;
+  margin-top: 44px;
+  margin-left: 30px;
+}
+
+.info-item .info-img p.desc {
+  margin-top: 16px;
+}
+
+.info-item ul {
+  margin: 20px 30px;
+  padding-bottom: 10px;
+}
+
+.info-item ul li {
+  height: 42px;
+  line-height: 42px;
+}
+
+.info-item span {
+  color: #EA5600;
+}
+
+.info-more {
+  width: 300px;
+  height: 62px;
+  line-height: 62px;
+  color: #FD3911;
+  margin: 0 auto;
+  border-top: 1px solid #ECECEC;
+  text-align: center;
+}
+
+/* main 结束 */
+

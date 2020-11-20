@@ -1,0 +1,49 @@
+.modal{
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    /* 使用opacity会导致子元素随父元素透明 */
+    /* opacity: 0.5; */
+}
+.modal-dialog{
+    width: 600px;
+    height: 400px;
+    background: #ffffff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    /* 下面的代码不够零活，必须要知道width和height */
+    /* margin-left: -300px;
+    margin-top: -200px; */
+    /* transform在ie8之前都不好使 */
+    transform: translate(-50%, -50%);
+}
+.modal-header{
+    /* height: 50px; */
+    border-bottom: 1px solid #cccccc;
+    padding: 10px;
+    position: relative;
+}
+.modal-body{
+    padding: 10px;
+}
+.modal-footer{
+    width: 100%;
+    border-top: 1px solid #cccccc;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.modal .close{
+    border: 0;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
