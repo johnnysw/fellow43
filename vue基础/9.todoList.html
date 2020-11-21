@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todoList</title>
+    <style>
+        .active {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="msg" @keyup="search">
+        <button type="" @click="add">添加</button>
+        <ul>
+            <li :class="{ active:item.isActive }" v-for="(item,index) in showList" @click="change(item)">
+                {{item.content}}
+                <button @click.stop="del(index)" type="">删除</button>
+            </li>
+        </ul>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+                el: '#app',
+                data: {
+                    list: [{
+                        content: '1111',
+                        isActive: false
+                    }, ],
+                    showList: [{
+                        content: '1111',
+                        isActive: false
+                    }, ],
+                    msg: '',
+                },
+                methods: {
+                    add() {
+                        this.list.push({
+                            content: this.msg,
+                            isActive: false
+                        });
+                        this.msg = '';
+                        // 将 this.list 里面的内容都取出来放到数组中， 将一个完全一样的新数组赋值给 this.showList
+                        this.showList = [...this.list];
+                    },
+                    change(obj) {
+                        obj.isActive = !obj.isActive;
+                        this.list = [...this.showList]
+                    },
+                    del(index) {
+                        this.list.splice(index, 1);
+                        this.showList = [...this.list];
+                    },
+                    search() {
+                        // var _this = this
+                        this.showList = this.list.filter(function(obj, index, arr) {
+                            // console.log(this);
+                            // console.log(_this.msg);
+                            return obj.content.includes(vm.msg)
+                        });
+                    }
+                },
+            })
+            // var str = '0123asdfg';
+            // console.log(str.indexOf('sas'));
+            // console.log(str.includes('sas'));
+            // var obj1 = {
+            //         name: 'zhangsan'
+            //     }
+            //     // 不是复制，是赋值
+            // var obj2 = obj1;
+            // console.log(obj2.name); //zhangsan
+            // obj2.name = 'wangwu';
+            // console.log(obj1.name); //
+
+        var arr1 = [1, 2, 3];
+        var arr2 = [arr1];
+        console.log(arr2); //[ [1,2,3] ]
+        arr2 = [4, 5, ...arr1, 6, 7]; //  [  1,2,3  ]
+        console.log(arr2);
+        var obj1 = {
+            name: '张三',
+            age: 67
+        }
+        var obj2 = {
+            age: 25,
+            ...obj1,
+        }
+        console.log(obj2);
+    </script>
+</body>
+
+</html>
