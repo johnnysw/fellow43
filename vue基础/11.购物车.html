@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    #cart {
+      width: 400px;
+      margin: 50px auto;
+    }
+
+    #cart ul {
+      margin: 10px 0;
+      border-bottom: 1px solid #000;
+    }
+
+    #cart li {
+      height: 40px;
+      line-height: 40px;
+      background: pink;
+      margin-bottom: 10px;
+      padding: 0 10px;
+    }
+
+    #cart li.active {
+      background: #ff0000;
+    }
+
+    .left {
+      float: left;
+    }
+
+    .right {
+      float: right;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div id="cart">
+      <h1>商品列表</h1>
+      <ul>
+        <li v-for="(item, index) in list" :key="index" @click="select(item)" :class="{active:item.isActive}">
+          <span class="left">{{item.name}}</span>
+          <span class="right"> {{item.price}}</span>
+        </li>
+      </ul>
+      <!-- <p>总价：{{count}}</p> -->
+      <p>总价：{{ sum() }}</p>
+      <p>总价：{{ total }}</p>
+    </div>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        // count: 0,
+        list: [{
+            name: "衬衫",
+            price: 999,
+            isActive: false,
+          },
+          {
+            name: "裙子",
+            price: 1450,
+            isActive: false,
+          },
+          {
+            name: "电脑",
+            price: 15800,
+            isActive: false,
+          },
+          {
+            name: "裤子",
+            price: 650,
+            isActive: false,
+          }
+        ]
+      },
+      computed: {
+        total(){
+          var count = 0
+          this.list.forEach(function (obj, index, arr) {
+            if (obj.isActive) {
+              count += obj.price
+            }
+          });
+          return count;
+        }
+      },
+      methods: {
+        select(obj) {
+          obj.isActive = !obj.isActive;
+          // this.sum();
+        },
+        sum() {
+          var count = 0
+          this.list.forEach(function (obj, index, arr) {
+            if (obj.isActive) {
+              count += obj.price
+            }
+          });
+          console.log(count);
+          // this.count = count;
+          return count;
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>

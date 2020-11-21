@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <p> {{ firstname + ' ' +  lastname}}</p>
+    <!-- 方法的调用 -->
+    <p> {{ fullName() }}</p>
+    <!-- 计算属性 -->
+    <p> {{ fullName1 }} </p>
+    <p>{{a}}</p>
+    <button @click="add">+</button>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        firstname: 'Jack',
+        lastname: 'Smith',
+        a: 0,
+      },
+      // 计算属性
+      computed: {
+        fullName1() {
+          console.log('computed');
+          return this.firstname + ' ' + this.lastname;
+        }
+      },
+      methods: {
+        fullName() {
+          console.log('methods');
+          return this.firstname + ' ' + this.lastname;
+        },
+        add() {
+          this.a += 1;
+        }
+      },
+      watch: {
+        a: function (newVal, oldVal) {
+          console.log(newVal, oldVal)
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>

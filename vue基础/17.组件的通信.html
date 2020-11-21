@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <template id="tpl1">
+    <div>
+      <h1>{{msg}}</h1>
+      <button @click="add2">加加加加</button>
+    </div>
+  </template>
+
+  <div id="app">
+    <p>{{count}}</p>
+    <button @click="add1">加</button>
+    <tpl1 :msg="msg" :ad1="add1" @son="add1"></tpl1>
+
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: '爸爸说的话',
+        count: 0
+      },
+      methods: {
+        add1() {
+          this.count++;
+        }
+      },
+      components: {
+        'tpl1': {
+          template: '#tpl1',
+          props: [
+            'msg', 'ad1'
+          ],
+          methods: {
+            add2() {
+              // !!!!!!!绝对绝对绝对不能这么使用
+              // vm.count++;
+
+              // 通过props把父组件中的方法传过来，在子组件中调用
+              // this.ad1();
+
+              // 通过触发子组件的自定义事件来更改父组件中的状态
+              this.$emit('son');
+            }
+          },
+        }
+
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul>
+    <li>1111</li>
+    <li>1112</li>
+    <li>1113</li>
+  </ul>
+  <script>
+    var obj1 = {
+      name: 'lisi',
+      age: 23,
+      brother: {
+        name: 'wangwu',
+        age: 44
+      }
+    }
+    // 两个会指向同一块内存，一个变另一个也变
+    var obj2 = obj1;
+    // ...是浅克隆
+    var obj3 = {
+      ...obj1
+    };
+
+    // 把类数组转换成数组
+    var aLi = document.getElementsByTagName('li');
+    console.log(aLi);
+    var aLI = [...aLi];
+    aLI.push('ppppp');
+    console.log(aLI)
+
+    // 深克隆
+    function clone(obj) {
+      var o = obj.constructor == Array ? [] : {}
+      for (var p in obj) {
+        if (typeof obj[p] === 'object') {
+          o[p] = clone(obj[p])
+        } else {
+          o[p] = obj[p]
+        }
+      }
+      return o
+    }
+
+    var obj4 = clone(obj1);
+    obj4.brother.age = 99;
+    console.log(obj1);
+    console.log(obj4);
+
+
+
+    obj3.brother.age = 66;
+    console.log(obj1, obj3);
+
+    var arr1 = [1, 2, 3];
+    var arr2 = clone(arr1)
+    arr2[1] = 888;
+    console.log(arr2, arr1)
+  </script>
+</body>
+
+</html>

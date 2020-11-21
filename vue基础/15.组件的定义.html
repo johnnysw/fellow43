@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    模块化：基本上就是单纯的js，工具类函数，解决一个小问题
+    组件化：
+   -->
+  <div id="app1">
+    <my-com message="hahaha" :msg="msg"></my-com>
+    <tpl1 :msg="msg"></tpl1>
+  </div>
+  <div id="app2">
+    <my-com></my-com>
+    <!-- <tpl1></tpl1> -->
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    //  全局组件
+    Vue.component('my-com', {
+      template: '<p>😃  {{msg}} ,,,, {{message}} </p>',
+      props: [
+        'message', 'msg'
+      ]
+    })
+    var vm = new Vue({
+      el: '#app1',
+      data: {
+        msg: 'hello word'
+      },
+      methods: {
+
+      },
+      components: {
+        'tpl1': {
+          template: '<a href="">哈哈哈哈 {{msg}} </a>',
+          props: [
+            "msg"
+          ]
+        }
+      }
+    })
+    var vm = new Vue({
+      el: '#app2',
+      data: {
+
+      },
+      methods: {
+
+      },
+    })
+  </script>
+</body>
+
+</html>

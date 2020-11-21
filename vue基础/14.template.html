@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .div1 {
+      border: 1px solid #000000
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="div1" v-for="(item, index) in arr" :key="index">
+      <p> {{item}} </p>
+      <p> {{item}} </p>
+    </div>
+    <template class="div1" v-for="(item, index) in arr" :key="index">
+      <p> {{item}} </p>
+      <p> {{item}} </p>
+    </template>
+    
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        arr: [1, 2, 3]
+      },
+      methods: {
+
+      },
+    })
+  </script>
+</body>
+
+</html>

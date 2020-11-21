@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="(item, index) in list" :key="index">{{item}}</li>
+    </ul>
+    <button @click="fn1">修改</button>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        list: [1, 2, 3]
+      },
+      methods: {
+        fn1() {
+          // 这种写法视图层不会更新
+          // this.list[1] = 666;
+
+          /* 
+            1、要修改的变量
+            2、对应的索引
+            3、新改的值
+          */
+          // Vue.set(this.list, 1, 999);
+          this.$set(this.list, 1, 888);
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>

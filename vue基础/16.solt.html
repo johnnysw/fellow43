@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <template id="tpl2">
+    <div>
+      <slot name="a1"></slot>
+      <h1>周六666666 </h1>
+      <p>今天学vue组件</p>
+      <slot name="a2"></slot>
+    </div>
+  </template>
+
+  <div id="app">
+    <tpl1></tpl1>
+    <tpl2>
+      <a slot="a2" href="">tiaotiao1</a>
+      <a slot="a1" href="">tiaotiao2</a>
+    </tpl2>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    var tpl = `<div>
+      <h1>周六 </h1>
+      <p>今天学vue组件</p>
+    </div>`;
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hahaha'
+      },
+      methods: {
+
+      },
+      components: {
+        'tpl1': {
+          template: tpl,
+
+        },
+        'tpl2': {
+          template: '#tpl2',
+          props: [],
+          data() {
+            return {}
+          },
+          methods: {},
+        }
+      }
+    })
+
+    var str1 = '😁';
+    var str2 = '66666 ' + str1 + '666666';
+    var str3 = `99999999 ${str1} 99999999`;
+    console.log(str2);
+    console.log(str3);
+  </script>
+</body>
+
+</html>

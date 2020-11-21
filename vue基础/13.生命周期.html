@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <p>{{ count }}</p>
+    <button @click="change">改</button>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        count: 0,
+      },
+      // 实例创建之前调用
+      beforeCreate() {
+        console.log('---------------beforeCreate------------');
+        console.log('el', this.$el); //undefined
+        console.log('data', this.$data) //undefined
+        console.log('innerHTML', document.getElementById('app').innerHTML) //<p>{{ count }}</p>
+      },
+      // 实例创建成功，此时 data 中的数据显示出来了
+      created() {
+        console.log('---------------created------------');
+        console.log('el', this.$el); //undefined
+        console.log('data', this.$data) //data {__ob__: Observer}
+        console.log('innerHTML', document.getElementById('app').innerHTML) //<p>{{ count }}</p>
+      },
+      // 数据中的 data 在模版中先占一个位置
+      beforeMount() {
+        console.log('---------------beforeMount------------');
+        console.log('el', this.$el); //  <div id="app"><p>{{ count }}</p></div>
+        console.log('data', this.$data) //data {__ob__: Observer}
+        console.log('innerHTML', document.getElementById('app').innerHTML) //<p>{{ count }}</p>
+      },
+      // 模版中的 data 数据直接显示出来了  【初次加载结束】
+      mounted() {
+        console.log('---------------mounted------------');
+        console.log('el', this.$el); //  <div id="app"><p>{{ count }}</p></div>
+        console.log('data', this.$data) //data {__ob__: Observer}
+        console.log('innerHTML', document.getElementById('app').innerHTML) //<p>0</p>
+      },
+      // 当 data 数据发生变化调用，发生在虚拟 DOM 重 新渲染
+      beforeUpdate() {
+        console.log('---------------beforeUpdate------------');
+        console.log('el', this.$el); //  <div id="app"><p>1</p></div>
+        console.log('data', this.$data) //data {__ob__: Observer}
+        console.log('innerHTML', document.getElementById('app').innerHTML) //<p>0</p>
+      },
+      updated() {
+        console.log('---------------updated------------');
+        console.log('el', this.$el); //  <div id="app"><p>1</p></div>
+        console.log('data', this.$data) //data {__ob__: Observer}
+        console.log('innerHTML', document.getElementById('app').innerHTML) //<p>1</p>
+
+      },
+      methods: {
+        change() {
+          this.count++;
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>
