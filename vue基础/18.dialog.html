@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>弹层</title>
+  <style>
+    #container {
+      width: 400px;
+      border: solid 1px #000000;
+      border-radius: 5px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      padding: 10px;
+      background: #cccccc;
+    }
+
+    #container header {
+      height: 40px;
+      line-height: 40px;
+      border-bottom: 1px solid #000000;
+    }
+
+    #container header span {
+      float: right;
+      padding: 0 5px;
+      cursor: pointer;
+    }
+
+    #container main {
+      padding: 10px;
+    }
+
+    #container footer {
+      height: 40px;
+      line-height: 40px;
+      padding: 0 10px;
+      border-top: solid 1px #000000;
+    }
+
+    button {
+      background: rgb(226, 90, 48);
+      padding: 5px 20px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <template id="tpl">
+    <div id="container">
+      <header>
+        {{title}}
+        <span @click="close">X</span>
+      </header>
+      <main>
+        <slot></slot>
+      </main>
+      <footer>
+        <button @click="close">{{title}}</button>
+      </footer>
+    </div>
+  </template>
+  <div id="app">
+    <button @click="login">登录</button>
+    <button @click="register">注册</button>
+    <my-dialog v-show="isLogin" title="登录" @close="hide">
+      <p>
+        <label for="">用户名：</label>
+        <input type="text">
+      </p>
+      <p>
+        <label for="">密码：</label>
+        <input type="password">
+      </p>
+    </my-dialog>
+    <my-dialog v-show="isRegister" title="注册" @close="hide">
+      <p>
+        <label for="">用户名：</label>
+        <input type="text">
+      </p>
+      <p>
+        <label for="">密码：</label>
+        <input type="password">
+      </p>
+      <p>
+        <label for="">确认密码：</label>
+        <input type="password">
+      </p>
+    </my-dialog>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        isLogin: false,
+        isRegister: false,
+      },
+      methods: {
+        login() {
+          this.isLogin = true;
+          this.isRegister = false;
+        },
+        register() {
+          this.isLogin = false;
+          this.isRegister = true;
+        },
+        hide() {
+          this.isLogin = false;
+          this.isRegister = false;
+        }
+      },
+      components: {
+        'myDialog': {
+          template: '#tpl',
+          props: [
+            'title',
+          ],
+          data() {
+            return {
+
+            }
+          },
+          methods: {
+            close() {
+              this.$emit('close');
+            }
+          },
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
