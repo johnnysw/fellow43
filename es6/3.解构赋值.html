@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解构赋值</title>
+</head>
+
+<body>
+    <script>
+        // 数组的结构赋值
+        var arr1 = [1, 2, 3];
+        // var a0 = arr1[0];
+        // var a1 = arr1[1];
+        // var a2 = arr1[2];
+        // console.log(a0, a1, a2);
+
+        // let [a0, a1, a2] = arr1;
+        // console.log(a0, a1, a2);
+
+        // let [a0, a1, a2, a3] = arr1;
+        // console.log(a0, a1, a2, a3);
+
+        // let [a0, a1] = arr1;
+        // console.log(a0, a1);
+
+        let [a0, , a2] = arr1;
+        console.log(a0, a2);
+
+        // 对象的结构赋值
+        let obj1 = {
+                name: 'lisi',
+                age: 18
+            }
+            // let {
+            //     age,
+            //     name
+            // } = obj1;
+            // console.log(name, age);
+            // let {
+            //     x,
+            //     y
+            // } = obj1;
+            // console.log(x, y); //undefined undefined
+            // let {
+            //     name: x,
+            //     age: y
+            // } = obj1;
+            // console.log(x, y); //lisi 18
+            // console.log(name, age); //一旦起了别名，原来的名字就不好使了
+
+        // 字符串的结构:和数组一样
+        // let str = 'abcde';
+        // let [s0, , s2, s3, s4] = str;
+        // console.log(s0, s2, s3, s4);
+
+        // // 函数参数的解构
+        // function fn1([x, y, z]) {
+        //     console.log(x, y, z);
+        // }
+        // fn1([1, 2, 3]);
+
+        // 给函数参数设置默认值
+        function fn2(x, y, z = 666) {
+            // z = z || 999;
+            console.log(x, y, z); //
+        }
+        fn2(1, 2, null);
+
+        let x = 1;
+        let y = 9;
+
+        // let temp = x;
+        // x = y;
+        // y = temp;
+        // console.log(x, y);
+
+
+        [x, y] = [y, x];
+        console.log(x, y);
+    </script>
+</body>
+
+</html>

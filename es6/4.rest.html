@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fn1(x, y) {
+            // 获取所有的实参
+            console.log(arguments); //[1,2,3,4,5]
+            console.log(arguments.callee);
+        }
+        fn1(1, 2, 3, 4, 5);
+
+        function fn2(x, y, ...rest) {
+            console.log(rest); //[3,4,5]
+        }
+        fn2(1, 2, 3, 4, 5);
+
+        let [a, b, c, d, e] = [1, 2, 3, [4, 5]];
+        console.log(a, b, c, d, e); //1，2，3, [4,5] ,undeined
+    </script>
+</body>
+
+</html>
