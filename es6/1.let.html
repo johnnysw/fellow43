@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+    let 和 var 的区别：
+        1、let 不允许重复声明变量，如果这么做了就会提示错误
+        2、let不存在变量提升，会报错
+        3、let存在一个块级作用域的概念
+        4、暂时性死区：【在一个作用域内，不允许同名变量进来】
+ -->
+    <ul>
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+    </ul>
+    <script>
+        //  1、let 不允许重复声明变量，如果这么做了就会提示错误
+        // var str = 'hello';
+        // var str = 'word';
+        // console.log(str); // word
+
+        // let str = 'hello';
+        // let str = 'word';
+        // console.log(str); //Identifier 'str' has already been declared
+
+        // 2、let不存在变量提升，会报错
+        // console.log(str1); //undefined  : 变量提升
+        // var str1 = 'study';
+
+        // var str1;
+        // console.log(str1);
+        // str1 = 'study';
+        // console.log(str1); //Cannot access 'str1' before initialization
+        // let str1 = 'study';
+
+        // if (true) {
+        //     var a = 10
+        // }
+        // console.log(a); //10
+
+        /*
+            作用域：
+                1、全局作用域
+                2、局部作用域（函数作用域）
+                3、块级作用域：es6中，一个{}就是一个块级作用域，let 声明的变量只能在声明他的{}中获取到
+        */
+
+        // if (true) {
+        //     let a = 10;
+        // }
+        // console.log(a); //a is not defined
+
+
+        // function fn1() {
+        //     var aa = 100;
+        // }
+        // fn1();
+        // console.log(aa); // aa is not defined
+
+        // for (var i = 0; i < 3; i++) {
+        //     console.log(i);
+        // }
+        // console.log(i); //3
+        // for (let i = 0; i < 3; i++) {
+        //     console.log(i);
+        // }
+        // console.log(i); //i is not defined
+
+        var aLi = document.getElementsByTagName('li');
+        // for (var i = 0; i < aLi.length; i++) {
+        //     aLi[i].index = i;
+        //     aLi[i].onclick = function() {
+        //         // console.log(i); //3
+        //         console.log(this.index);
+        //     }
+        // }
+        // console.log(i); //3
+
+        // 闭包：外部函数中声明内部函数，在内部函数中引用了外部函数中定义的局部变量，此时外部函数执行完后变量会继续留在内存当中，不会被释放
+        // for (var i = 0; i < aLi.length; i++) {
+        //     (function(index) {
+        //         aLi[i].onclick = function() {
+        //             console.log(index);
+        //         }
+        //     })(i);
+        // }
+
+        for (let i = 0; i < aLi.length; i++) {
+            aLi[i].onclick = function() {
+                console.log(i);
+            }
+        }
+
+        var b = 20;
+
+        // function fn2() {
+        //     console.log(b); //undefined :局部作用域内的变量提升
+        //     var b = 200;
+        // }
+        // fn2()
+        function fn2() {
+            console.log(b); //报错 :Cannot access 'b' before initialization
+            let b = 200;
+        }
+        fn2()
+    </script>
+</body>
+
+</html>
