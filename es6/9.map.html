@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let m1 = new Map();
+
+        m1.set('name', 'lisi');
+        m1.set('name', 'wangwu');
+        m1.set('age', '55');
+        console.log(m1);
+
+        console.log(m1.size);
+
+        console.log(m1.get('name'));
+
+        // console.log(m1.delete('name'));//true
+
+        // m1.clear();
+        console.log(m1);
+
+        for (let [index, value] of m1.entries()) {
+            console.log(index, value);
+        }
+
+        // WeakMap  :只能用对象作为 key
+        let w1 = new WeakMap();
+        w1.set({
+            name:'liuneng',
+            age:99
+        },'gyujnbfdghjnbh');
+        console.log(w1);
+        // w1.set('name', 'lisi666')
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

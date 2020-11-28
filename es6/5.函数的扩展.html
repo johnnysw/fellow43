@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--  -->
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <button type="" id="btn1"> 点我</button>
+    <script>
+        // 1、对于函数参数默认值得扩展
+        function fn1(x = 100, y = 200) {
+            // body
+        }
+        // 2、rest
+        function fn2(x, y, ...rest) {
+            // body
+        }
+        fn2(1, 2, 3, 4, 5);
+        // 3、新增属性
+        console.log(fn2.length); //  获取到没有设定默认值的参数的个数
+        console.log(fn2.name); //f2
+
+        // 4、箭头函数
+        // 函数声明
+        const fn3 = function(str) {
+            console.log(this, str); //window
+        }
+        fn3();
+
+        const fn4 = () => {};
+
+        /* 
+            普通函数的 this 指向问题（ 谁调用的这个方法或谁调用了事件，this 指向的就是谁 ）
+                1、事件处理函数中 this => 绑定事件的那个 dom元素
+                2、在定时器中  this => window
+                3、在自定义函数中  this => window
+                4、在自定义对象中 this => 该对象
+                5、在类中  this =>  new 出来的实例化对象
+        */
+        const oBtn1 = document.getElementById('btn1');
+        oBtn1.onclick = function() {
+            console.log(this); //
+            setTimeout(function() {
+                console.log(this); //window
+            }, 100);
+        }
+        const obj1 = {
+            name: 'lisi',
+            eat: function() {
+                console.log(this); // obj1
+            }
+        }
+        obj1.eat();
+
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            console.log(this);
+        }
+        let p1 = new Person('wangwu', 28);
+
+        /* 
+            改变 this 的指向有几种方式？
+                1、call   (this,arg1,arg2,arg3)
+                2、apply  (this,[arg1,arg2,arg3])
+                3、bind  (this,arg1,arg2,arg3)   需要手动调用
+        */
+        fn3.call(oBtn1, 'aa');
+        fn3.apply(oBtn1, ['aa']);
+        fn3.bind(oBtn1, 'aa')();
+
+        let aLi = document.getElementsByTagName('li');
+        // for (let i = 0; i < aLi.length; i++) {
+        //     aLi[i].onclick = function() {
+        //         console.log(this); //aLi[i]
+        //         setTimeout(function() {
+        //             console.log(this); //window
+        //         }.bind(this), 1000);
+        //     }
+        // }
+
+        /* 
+            箭头函数的 this 指向：
+                1、this 指向的是定义时所在的对象，而不是使用时所在的对象
+                2、箭头函数没有 this， 他的父作用域中的 this 是谁，那箭头函数中的 this 就是谁
+                3、如果箭头函数被非箭头函数包含，那它的 this 指向的就是他最近那层非箭头函数中的 this ，否则就是 window           
+        */
+        console.clear();
+        for (let i = 0; i < aLi.length; i++) {
+            aLi[i].onclick = function() {
+                console.log(this); //aLi[i]
+                // setTimeout(() => {
+                //     console.log(this); //aLi[i]
+                // }, 1000);
+                let fn = () => {
+                    console.log(this);
+                }
+                setTimeout(fn, timeout);
+            }
+        }
+
+        // let obj2 = {
+        //     name: 'obj2',
+        //     study: function() {
+        //         console.log(this); //obj2
+        //         let obj3 = {
+        //             name: 'obj3',
+        //             code: function() {
+        //                 console.log(this); // obj3
+        //             }
+        //         }
+        //         obj3.code();
+        //     }
+        // }
+        // let obj2 = {
+        //     name: 'obj2',
+        //     study: function() {
+        //         console.log(this); //obj2
+        //         let obj3 = {
+        //             name: 'obj3',
+        //             code: () => {
+        //                 console.log(this); // 
+        //             }
+        //         }
+        //         obj3.code();
+        //     }
+        // }
+        // let obj2 = {
+        //     name: 'obj2',
+        //     study: function() {
+        //         console.log(this); //obj2
+        //         setTimeout(function() {
+        //             let obj3 = {
+        //                 name: 'obj3',
+        //                 code: () => {
+        //                     console.log(this); // window
+        //                 }
+        //             }
+        //             obj3.code();
+        //         }, 1000);
+        //     }
+        // }
+        // let obj2 = {
+        //     name: 'obj2',
+        //     study: function() {
+        //         console.log(this); //obj2
+        //         setTimeout(() => {
+        //             let obj3 = {
+        //                 name: 'obj3',
+        //                 code: () => {
+        //                     console.log(this); // obj2
+        //                 }
+        //             }
+        //             obj3.code();
+        //         }, 1000);
+        //     }
+        // }
+        let obj2 = {
+            name: 'obj2',
+            study: () => {
+                console.log(this); //window
+                setTimeout(() => {
+                    let obj3 = {
+                        name: 'obj3',
+                        code: () => {
+                            console.log(this); // window
+                        }
+                    }
+                    obj3.code();
+                }, 1000);
+            }
+        }
+        obj2.study();
+    </script>
+</body>
+
+</html>

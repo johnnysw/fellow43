@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1、创建XMLHttpRequest 对象
+        var xmlhttp;
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        // 2、发送请求 （ get ，  post)
+        // get（ type，url）
+        var baseUrl = 'http://www.qingmengtech.com:8085/'
+        xmlhttp.open("GET", baseUrl + '/interviewer/guidance?pageNum=' + 1 + '&pageSize=' + 5, true);
+        xmlhttp.send();
+
+        // post
+        xmlhttp.open("POST", baseUrl + '/interviewer', true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send("fname=Bill&lname=Gates");
+
+
+        // 服务器响应
+
+        /* 
+            http状态码：
+            200：一切正常
+            500：服务器方面的问题
+            404：找不到资源
+            301：永久重定向
+            302：临时重定向
+            304：缓存
+        */
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                // text;
+                // xml
+                // json
+                console.log(xmlhttp.responseText);
+            }
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

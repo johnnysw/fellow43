@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 1、简写 */
+        let name = 'lisi';
+        let age = 89;
+        let obj1 = {
+            name: name,
+            age: age,
+            eat: function () {
+                console.log('eat');
+            }
+        }
+        console.log(obj1);
+
+        let obj2 = {
+            name,
+            age,
+            eat() {
+                console.log('eating');
+            }
+        }
+        console.log(obj2);
+
+        /* 2、属性表达式 */
+        let xx = 'sex111';
+        let obj3 = {
+            [xx + 99999]: '女'
+        }
+        console.log(obj3);
+
+        /*  3、object.is()  , 返回的结果基本和===相同 */
+        console.log('11' === 11); //false
+        console.log(Object.is('11', 11)); //false
+
+        console.log(+0 === -0);//true
+        console.log(Object.is(+0, -0));//true
+
+        console.log(NaN === NaN); //false
+        console.log(Object.is(NaN, NaN)); //true
+
+        /* 对象的合并 ：浅拷贝 */
+        let obj4 = { ...obj1, ...obj3 }
+        console.log(obj4);
+
+        let obj5 = Object.assign({}, obj1, obj3);
+        console.log(obj5);
+        console.log(obj1);
+
+        /* 对象的遍历 ： for ... in */
+        for (let p in obj5) {
+            console.log(p);
+            console.log(obj5[p]);
+        }
+
+        console.log(Object.keys(obj5));//["name", "age", "eat", "sex11199999"]
+        console.log(Object.values(obj5));//["lisi", 89, ƒ, "女"]
+        console.log(Object.entries(obj5));
+        /*
+          0: (2)["name", "lisi"]
+          1: (2)["age", 89]
+          2: (2)["eat", ƒ]
+          3: (2)["sex11199999", "女"]
+         */
+
+        /*  */
+        console.log('age' in obj5);//true
+        console.log('age666' in obj5);//false
+
+
+
+
+
+    </script>
+</body>
+
+</html>

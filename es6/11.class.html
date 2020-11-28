@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 定义一个类 */
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            eat() {
+                console.log(this.name + ' is eating');
+            }
+        }
+        let p1 = new Person('lisi', 55);
+        console.log(p1);
+        p1.eat();
+        /* 继承 */
+        class Student extends Person {
+            constructor(...param) {
+                super(...param);
+                this.school = param[2];
+            }
+            code() {
+                console.log(this.name + ' is coding!!!!');
+            }
+
+        }
+        let s1 = new Student('wangwu', 18, '理工')
+        console.log(s1);
+        s1.eat();
+        s1.code();
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="../jquery-1.11.3.min.js"></script>
+    <script>
+        // 回调地域
+        // $.get('./data/a.json', function (res1) {
+        //     $.get('./data/b.json', function (res2) {
+        //         console.log(res2);
+        //         $.get('./data/c.json', function (res3) {
+        //             console.log(res3);
+        //         })
+        //     })
+        // })
+
+        // promise：用同步的形式处理异步的问题
+        // let p1 = new Promise(function (resolve, reject) {
+        //     setTimeout(() => {
+        //         // resolve('success');
+        //         reject('fail');
+        //     }, 1000);
+        // }).then((res) => {
+        //     console.log(res);
+        // }).catch((err) => {
+        //     console.log(err);
+        // });
+
+        function getData(url) {
+            return new Promise((resolve, reject) => {
+                $.get(url, function (data) {
+                    if (url == './data/c.json') {
+                        reject('失败');
+                    }
+                    resolve(data)
+                })
+            })
+        }
+
+        getData('./data/a.json').then(res => {
+            console.log(res);
+            return getData('./data/b.json');
+        }).then(res => {
+            console.log(res);
+            return getData('./data/c.json')
+        }).then(res => {
+            console.log(res);
+        }).catch(err => console.log(err));
+
+
+
+
+
+    </script>
+</body>
+
+</html>

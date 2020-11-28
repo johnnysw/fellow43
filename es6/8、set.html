@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr1 = [1, 1, 2, 3, 3, 3, 4, 4];
+        let s1 = new Set(arr1);//类数组，没有数组的方法，不允许成员重复
+        console.log(s1);
+        let arr2 = [...s1];
+        console.log(arr2);
+
+        // add : 有返回值（返回操作完了的 set结构）
+        console.log(s1.add(5));
+        console.log(s1.add(4));
+
+        console.log(s1.delete(1));//true
+        console.log(s1.delete(1));//false
+        console.log(s1);
+
+        console.log(s1.has(2));//true
+        console.log(s1.has(6));//flase
+
+        console.log(s1.size);
+
+        // s1.clear();
+        console.log(s1);
+        // 索引和 value 都是一样的
+        for (let [index, value] of s1.entries()) {
+            console.log(index, value);
+        }
+
+        // WeakSet: 只能以对象作为成员
+        let w1 = new WeakSet();
+
+        // w1.add(888);//报错
+        let obj = {
+            name: 'lisi',
+            age: 99
+        }
+        w1.add(obj)
+
+        console.log(w1);
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
