@@ -35,7 +35,7 @@
         function getData(url) {
             return new Promise((resolve, reject) => {
                 $.get(url, function (data) {
-                    if (url == './data/c.json') {
+                    if (url == './data/b.json') {
                         reject('失败');
                     }
                     resolve(data)
@@ -52,6 +52,38 @@
         }).then(res => {
             console.log(res);
         }).catch(err => console.log(err));
+
+        let p1 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log('p1');
+                resolve();
+            }, 1000);
+        })
+        let p2 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log('p2');
+                resolve();
+            }, 500);
+        })
+        let p3 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log('p3');
+                resolve();
+            }, 2000);
+        })
+
+
+        // Promise.all([p1, p2, p3]).then(() => {
+        //     console.log('都 ok');
+        // })
+        Promise.race([p1, p2, p3]).then(() => {
+            console.log('ok 了');
+        })
+
+
+
+
+
 
 
 

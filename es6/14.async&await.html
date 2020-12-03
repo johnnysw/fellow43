@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function request1() {
+            let p = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log('1 ok');
+                    // resolve();
+                    reject('1失败');
+                }, 1500);
+            })
+            return p;
+        }
+        function request2() {
+            let p = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log('2 ok');
+                    resolve();
+                }, 500);
+            })
+            return p;
+        }
+        function request3() {
+            let p = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log('3 ok');
+                    resolve();
+                }, 2500);
+            })
+            return p;
+        }
+        async function fn1() {
+            try {
+                console.log('请求 1 要开始啦');
+                await request1();
+            } catch (error) {
+                console.log(error);
+            }
+
+            console.log('请求 2 要开始啦');
+            await request2();
+
+            console.log('请求 3 要开始啦');
+            await request3();
+
+            console.log('都 Ok啦');
+        }
+        fn1();
+
+
+
+
+    </script>
+</body>
+
+</html>
