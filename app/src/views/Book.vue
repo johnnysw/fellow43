@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>剧集</h1>
+    <h1>书籍</h1>
   </div>
 </template>
 
