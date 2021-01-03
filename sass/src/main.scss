@@ -1,0 +1,34 @@
+/*
+ 1、变量的定义
+ 2、嵌套
+    2.1：选择器的嵌套
+    2.2：属性的嵌套
+ 3、特殊变量
+ 4、混合宏
+ 5、继承：通过分组选择器来表示
+ 6、数字、字符串、颜色
+ 7、list
+ 8、map
+ 10、type-of()
+ 11、循环 ，条件语句 ，函数
+*/
+$color : #77a0c9;
+$student:'.student-list li';
+$str:'hello word!';
+// list
+$border:5px solid red;
+$border1:2px green;
+// map
+$colors: ( color1:red,color2:green,color3:blue );
+
+// 混合宏(没有设置默认值得参数，使用的时候必须要传值，设置了默认值得参数可以不传，通过名字确定是传的哪一个参数)
+@mixin box ($w, $h:100px, $c:blue){
+    background: $c;
+    width: $w;
+    height: $h;
+}
+@mixin aa {
+    background: orange;
+    width: 500px;
+    height: 500px;
+}

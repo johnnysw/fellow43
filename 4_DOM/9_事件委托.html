@@ -19,11 +19,17 @@
     var oUl1 = document.getElementById('ul1');
     var aLi = oUl1.getElementsByTagName('li');
     var oBtn1 = document.getElementById('btn1');
+
+    oBtn1.onclick = function (){
+      var oLi = document.createElement('li');
+      oLi.innerHTML = Math.random();
+      oUl1.append(oLi);
+    }
     
     for (var i = 0; i < aLi.length; i++) {
-      aLi[i].onclick = function (e) {
-        console.log(this.innerHTML);
-      }
+      // aLi[i].onclick = function (e) {
+      //   console.log(this.innerHTML);
+      // }
     }
 
     oUl1.onclick = function (e) {

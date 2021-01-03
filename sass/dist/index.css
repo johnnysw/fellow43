@@ -1,0 +1,159 @@
+@charset "UTF-8";
+/*
+ 1、变量的定义
+ 2、嵌套
+    2.1：选择器的嵌套
+    2.2：属性的嵌套
+ 3、特殊变量
+ 4、混合宏
+ 5、继承：通过分组选择器来表示
+ 6、数字、字符串、颜色
+ 7、list
+ 8、map
+ 10、type-of()
+ 11、循环 ，条件语句 ，函数
+*/
+#container {
+  background: #77a0c9;
+  width: 100px;
+  height: 200px;
+}
+#container .box1 {
+  width: 100px;
+  height: 300px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+#container .box1 a {
+  color: red;
+}
+#container .box1 a:hover {
+  color: green;
+}
+#container .box1-item {
+  list-style: none;
+}
+#container .box1 .student-list li {
+  border: 1px solid #000;
+  color: #77a0c9;
+}
+#container .box2 {
+  background: pink;
+  width: 200px;
+  height: 100px;
+}
+#container .box3, #container .box5 {
+  background: pink;
+  width: 200px;
+  height: 500px;
+}
+#container .box4 {
+  background: orange;
+  width: 500px;
+  height: 500px;
+}
+#container .box5 {
+  font-size: 20px;
+}
+#container .box6 {
+  width: 100px;
+  height: 50%;
+}
+#container .box6::after {
+  content: "HELLO WORD!";
+  content: "hello word!#77a0c9";
+  content: 11;
+  content: 11;
+  content: "hello666 word!";
+}
+#container .box7 {
+  color: #77a0c9;
+  color: #c0d3e6;
+  color: #3e6d9c;
+  color: #77a0c9;
+  color: rgba(119, 160, 201, 0.7);
+}
+#container .box8 {
+  border: 5px solid red;
+  border: 2px green dotted;
+  border: 2;
+  border: 5px solid red 2px green;
+  color: green;
+  z-index: 2;
+}
+#container .box9 {
+  color: color1, color2, color3;
+  color: red, green, blue;
+  color: true;
+}
+#container .item1 {
+  width: 100px;
+}
+#container .item2 {
+  width: 200px;
+}
+#container .item3 {
+  width: 300px;
+}
+#container .item4 {
+  width: 400px;
+}
+#container .item5 {
+  width: 500px;
+}
+#container .item6 {
+  width: 600px;
+}
+#container .item7 {
+  width: 700px;
+}
+#container .item8 {
+  width: 800px;
+}
+#container .item1 {
+  width: 100px;
+}
+#container .item2 {
+  width: 200px;
+}
+#container .item3 {
+  width: 300px;
+}
+#container .item4 {
+  width: 400px;
+}
+#container .item5 {
+  width: 500px;
+}
+#container .item6 {
+  width: 600px;
+}
+#container .item7 {
+  width: 700px;
+}
+#container .item8 {
+  width: 800px;
+}
+#container .item9 {
+  width: 900px;
+}
+#container .item-5px {
+  width: 5px;
+}
+#container .item-solid {
+  width: solid;
+}
+#container .item-red {
+  width: red;
+}
+#container .dog-1 {
+  height: 200px;
+}
+#container .dog-2 {
+  height: 400px;
+}
+#container .box10 {
+  color: blue;
+}
+
+/*# sourceMappingURL=index.css.map */

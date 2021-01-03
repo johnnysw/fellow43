@@ -1,0 +1,126 @@
+@import './main.scss';
+#container{
+    background: $color;
+    width: 100px;
+    height: 200px;
+    // 选择器可以嵌套
+    .box1{
+        width: 100px;
+        height: 300px;
+        a{
+            color: red;
+            // &： 是对外面元素的引用
+            &:hover{
+                color: green;
+            }
+        }
+        &-item{
+            list-style: none;
+        }
+        // 属性也可以嵌套
+        margin: {
+            top:10px;
+            bottom:20px;
+        }
+        #{$student}{
+            border:1px solid #000;
+            color: #{$color};
+        }
+    } 
+    .box2{
+        @include box(200px,$c:pink);
+    }
+    .box3{
+        @include box($w:200px,$h:500px,$c:pink);
+    }
+    .box4{
+        @include aa();
+    }
+    .box5{
+        // 继承
+        @extend .box3;
+        font-size: 20px;
+    }
+    .box6{
+        width: 20px*5;
+        height: percentage(200px/400px);
+        &::after{
+          content:to-upper-case($str) ;  
+          content: $str + $color;
+          content: str-length($str);
+          content: str-index($str,'!');
+          content: str-insert($str,'666',6);
+        }
+    }
+    .box7{
+        color: $color;
+        color: lighten($color, 20%);
+        color: darken($color, 20%);
+        color: opacify($color, 0.3);
+        color: transparentize($color, 0.3);
+    }
+    .box8{
+        border:$border;
+        border:append($border1, dotted );
+        border:index($border,solid);
+        border:join($border,$border1);
+        color:nth($list:$border1, $n: 2);
+        z-index: length($list: $border1);
+    }
+    .box9{
+       color:map-keys($map: $colors);
+       color: map-values($map: $colors);
+       color: map-has-key($map: $colors ,$key: color2);
+    }  
+    // to : 不包括 9
+    @for $i from 1 to 9{
+        .item#{$i}{
+            width: 100px*$i;
+        }
+    }
+    // through : 包括 9
+    @for $i from 1 through 9{
+        .item#{$i}{
+            width: 100px*$i;
+        }
+    }
+    @each $item in $border {
+        .item-#{$item}{
+            width: #{$item};
+        }
+    }
+    $i:1;
+    @while $i<3 {
+        .dog-#{$i}{
+            height: 200px*$i;
+        }
+        $i:$i+1;
+    }
+
+    @function fn1($n){
+        @if ($n == 1) {
+            @return red;
+        }@else if($n == 2){
+            @return green;
+        }@else{
+            // @warn '这样写不安全';
+            // @error '出错了';
+            @return blue;
+        }
+    }
+    .box10{
+        color:fn1(3);
+    }
+   
+
+}
+
+
+
+
+
+
+
+
+
+
