@@ -1,6 +1,6 @@
 <template>
   <div>
-    <aplayer :audio="audio" :lrcType="3"/>
+    <aplayer :audio="audio" :lrcType="0"/>
     <ul class="music-list">
       <li>
         <span>编号</span>
@@ -17,13 +17,6 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import APlayer from '@moefe/vue-aplayer';
-
-Vue.use(APlayer, {
-  defaultCover: 'https://github.com/u3u.png',
-  productionTip: true,
-});
 export default {
   name: "Music",
   data() {
@@ -37,16 +30,7 @@ export default {
       musicList: []
     };
   },
-  computed: {
-    // audio() {
-    //   return {
-    //     name: '',
-    //     artist: '',
-    //     url: '',
-    //     cover: '', // prettier-ignore
-    //   }
-    // },
-  },
+  computed: {},
   created() {
     this.getData()
   },
@@ -54,6 +38,7 @@ export default {
     getData() {
       this.axios.get('https://bird.ioliu.cn/netease/playlist?id=924680166').then(res => {
         this.musicList = res.data.playlist.tracks;
+      }).then(() => {
         this.getSong(this.musicList[0].id)
       }).catch(err => {
         console.log(err)
@@ -85,9 +70,7 @@ export default {
 
     span {
       padding: 0.1rem;
-
     }
-
   }
 }
 </style>

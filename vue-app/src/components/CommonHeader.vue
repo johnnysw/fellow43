@@ -38,7 +38,7 @@ header {
   font-weight: bolder;
   position: fixed;
   top: 0;
-
+z-index: 9999;
   .home {
     //1em = 父元素的字体大小
     //padding-left: 1em;
