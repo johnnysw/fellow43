@@ -36,6 +36,8 @@ header {
   text-align: center;
   line-height: 1rem;
   font-weight: bolder;
+  position: fixed;
+  top: 0;
 
   .home {
     //1em = 父元素的字体大小
