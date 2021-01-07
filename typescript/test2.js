@@ -17,5 +17,17 @@ console.log(i); */
 
 // console.log(aa);
 
-var x = 5;
-x = "abc";
+// var x = 5;
+// x = "abc";
+
+// typescript = anyscript
+
+function sayHello(name, age){
+    if(age){
+        console.log(name, age);
+    }else{
+        console.log(name);
+    }
+}
+
+sayHello("lisi", 23, 'male')
