@@ -15,7 +15,7 @@ let arr2: string[] = ["aa", "bb", "cc"];
 // 元组不过就是元数数据类型固定, 元素数量也固定的数组
 let tuple1: [string, number, boolean] = ["abc", 123, true];
 // tuple1[0] = true;
-tuple1.push("def");
+tuple1.push("def"); //！！！请注意，可以使用push方向向元组中push新的元素，并且没有任何警告！
 
 
 console.log(tuple1);
