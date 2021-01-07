@@ -11,8 +11,11 @@ console.log(a); */
 }
 console.log(i); */
 
-let aa = 5;
+// let aa = 5;
 
-let aa = "abc";
+// let aa = "abc";
 
-console.log(aa);
+// console.log(aa);
+
+var x = 5;
+x = "abc";
