@@ -1,4 +1,3 @@
-"use strict";
 class Person {
     constructor(name) {
         this.age = 18; //private私有属性
@@ -41,4 +40,55 @@ let p1 = new Person('lisi');
 // console.log(p1.getGender('I love you'));
 // p1.gender = '男';
 // console.log(p1.gender);
-console.log(Person.legs);
+// console.log(Person.legs);
+// 类和抽象类
+// 设计抽象的父类，一定是用来做继承的！
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+    eat() {
+    }
+}
+class Dog extends Animal {
+    shout() {
+        return '汪汪';
+    }
+}
+class Cat extends Animal {
+    shout() {
+        return '喵喵';
+    }
+}
+let dog = new Dog('汪财');
+let cat = new Cat('咪咪');
+class Monkey extends Animal {
+    shout() {
+        return '吱吱';
+    }
+}
+class MonkeyKing extends Monkey {
+    fly() {
+        return '我可以驾筋斗云飞!';
+    }
+}
+class MachineCat extends Cat {
+    fly() {
+        return '我可以在头上插个小飞风扇飞!';
+    }
+}
+// let wukong = new MonkeyKing('悟空');
+// console.log(wukong.shout());
+// console.log(wukong.fly());
+// let doraamon = new MachineCat('多啦A梦');
+// console.log(doraamon.shout());
+// console.log(doraamon.fly());
+// **多态：多种形态**
+// let flier: IFly = new MachineCat('多啦A梦');//new MonkeyKing('悟空');
+// console.log(flier.fly());
+function fly(flier) {
+    console.log(flier.fly());
+}
+fly(new MonkeyKing('悟空'));
+export {};
+// fly(new MachineCat('多啦A梦'));
