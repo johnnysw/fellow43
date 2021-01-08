@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            width: 530px;
+            /* width: 600px; */
+            height: 800px;
+            border: 2px solid #000000;
+            /*  这个元素作为弹性盒模型的容器，容器内的元素将以弹性盒子的方式分布  */
+            display: flex;
+            /* 主轴方向的设置: 决定内容的排列方向 */
+            flex-direction: row;
+            /* 当一行显示不下所有项目的时候是否换行 */
+            /* 交叉轴：决定项目换行的方向 */
+            /* flex-wrap: wrap; */
+
+            /* 项目在主轴上的对齐方式 */
+            justify-content: flex-start;
+
+            /* （沿主轴方向的每一行）项目在交叉轴上如何对齐 */
+            align-items: center;
+
+            /* (沿着交叉轴方向的每一行)在容器中如何分布。如果项目只有一根轴线，该属性不起作用。 */
+            align-content: center;
+
+
+        }
+
+        .div2 {
+            padding: 30px 0;
+            /* flex-grow: 2; */
+            /* flex-shrink: 2; */
+            flex-basis: 200px;
+        }
+
+        /* .box是弹性项目，只有设置为 display: flex的元素的亲儿子才是弹性项目，后代不是 */
+        .box {
+            width: 100px;
+            height: 100px;
+            background: pink;
+            margin: 5px;
+            /* 弹性项目是否要瓜分行内的富余空间，以及如何瓜分 */
+            /* flex-grow: 1; */
+
+            /* 这个属性声明的是弹性项目是否要瓜分行内的负债空间，以及如何瓜分。 */
+            /* flex-shrink: 1; */
+
+
+            /* flex:none; */
+            flex: 1;
+        }
+
+        .div3 {
+            /* align-self: flex-end; */
+            flex: 3;
+            padding: 6px;
+            border: cyan 5px dotted;
+        }
+
+        .div5 {
+            /* padding: 80px 0; */
+            flex: 5;
+            order: -1;
+            display: flex;
+            align-items: center;
+        }
+
+        .sub-item {
+            /* width: 10px; */
+            height: 30px;
+            flex: 1;
+            background: chartreuse;
+            margin: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="box div1">1</div>
+        <div class="box div2">2</div>
+        <div class="box div3">3</div>
+        <div class="box div4">4</div>
+        <div class="box div5">5
+            <div class="sub-item">5.1</div>
+            <div class="sub-item">5.2</div>
+            <div class="sub-item">5.3</div>
+        </div>
+        <div class="box div6">6</div>
+        <div class="box div1">1</div>
+        <div class="box div2"></div>
+        <div class="box div3">3</div>
+        <div class="box div4">4</div>
+        <div class="box div1">1</div>
+        <div class="box div2">2</div>
+        <div class="box div3">3</div>
+        <div class="box div4">4</div>
+        <div class="box div1">1</div>
+        <div class="box div2">2</div>
+        <div class="box div3">3</div>
+        <div class="box div4">4</div>
+        <div class="box div1">1</div>
+        <div class="box div2">2</div>
+        <div class="box div3">3</div>
+        <div class="box div4">4</div>
+        <div class="box div1">1</div>
+        <div class="box div2">2</div>
+        <div class="box div3">3</div>
+        <div class="box div4">4</div>
+        <div class="box div1">1</div>
+        <div class="box div2">2</div>
+        <div class="box div3">3</div>
+        <div class="box div4">4</div>
+    </div>
+</body>
+
+</html>
