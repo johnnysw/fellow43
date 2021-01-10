@@ -1,1 +1,8 @@
 <text>页面一111199</text>
+{{num}}
+<button type="primary" data-step="{{5}}" bindtap="add">add</button>
+<view id="box1" bindtap="click1">box1
+  <view id="box2" bindtap="click2">box2
+    <view id="box3" catchtap  ="click3">box3</view>
+  </view>
+</view>

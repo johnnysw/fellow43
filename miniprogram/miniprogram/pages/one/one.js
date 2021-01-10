@@ -5,7 +5,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    num: 0,
+  },
+  add(e) {
+    let step = e.target.dataset.step;
+    this.setData({
+      num: this.data.num + step
+    })
+  },
+  click1() {
+    console.log('box1');
+  },
+  click2() {
+    console.log('box2');
+  },
+  click3(e) {
+    // 小程序当中没有原生的这个方法
+    // e.stopPropagation();
+    console.log('box3');
   },
 
   /**
