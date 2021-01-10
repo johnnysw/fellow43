@@ -41,16 +41,13 @@
   "projectname": "miniprogram",
   "libVersion": "2.14.1",
   "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
-      "list": []
-    },
     "plugin": {
       "list": []
     },
     "game": {
+      "list": []
+    },
+    "gamePlugin": {
       "list": []
     },
     "miniprogram": {
@@ -58,7 +55,14 @@
         {
           "id": -1,
           "name": "db guide",
-          "pathName": "pages/databaseGuide/databaseGuide"
+          "pathName": "pages/databaseGuide/databaseGuide",
+          "query": ""
+        },
+        {
+          "name": "one",
+          "pathName": "pages/one/one",
+          "query": "id=66666",
+          "scene": null
         }
       ]
     }

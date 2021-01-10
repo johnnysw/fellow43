@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="466f2871-38bb-4305-a83e-3eec3bd1dc8b" name="默认的" comment="vue-app 图书">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="466f2871-38bb-4305-a83e-3eec3bd1dc8b" name="默认的" comment="vue-app 图书" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -80,6 +78,7 @@
       <workItem from="1609808132198" duration="7677000" />
       <workItem from="1609827351871" duration="6482000" />
       <workItem from="1609840049261" duration="163000" />
+      <workItem from="1610249737673" duration="86000" />
     </task>
     <task id="LOCAL-00001" summary="vue-app">
       <created>1609730645441</created>

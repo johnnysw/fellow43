@@ -13,7 +13,7 @@
 </view>
 
 <!-- if ... else -->
-<view wx:if="{{num > 0}}">
+<!-- <view wx:if="{{num > 0}}">
   num > 0
 </view>
 <view wx:elif="{{num == 0}}">
@@ -26,7 +26,7 @@
 <view wx:for="{{objArr}}" wx:key="index">
   <text>{{item.name}} : </text>
   <text>{{item.age}}</text>
-</view>
+</view> -->
 
 <!-- block:该结构不会被渲染到页面中 -->
 <block wx:for="{{objArr}}" wx:key="index">
@@ -35,7 +35,7 @@
 </block>
 
 <!-- template -->
-<template name="temp1">
+<!-- <template name="temp1">
   <text>111</text>
   <text>222</text>
 </template>
@@ -48,6 +48,8 @@
 <template is="temp2" data="{{ name:'aa',age:66 }}"></template>
 
 <import src="./temp3.wxml"></import>
-<template is="temp3" wx:for="{{objArr}}" wx:key="index" data="{{...item}}"></template>
+<template is="temp3" wx:for="{{objArr}}" wx:key="index" data="{{...item}}"></template> -->
+
+<button type="primary" bindtap="goOne">点击跳转到页面一</button>
 
 
