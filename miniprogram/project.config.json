@@ -63,6 +63,12 @@
           "pathName": "pages/one/one",
           "query": "id=66666",
           "scene": null
+        },
+        {
+          "name": "two",
+          "pathName": "pages/two/two",
+          "query": "id=66666",
+          "scene": null
         }
       ]
     }

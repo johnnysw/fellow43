@@ -1,0 +1,4 @@
+/* components/wc/wc.wxss */
+.title{
+  color:red;
+}
