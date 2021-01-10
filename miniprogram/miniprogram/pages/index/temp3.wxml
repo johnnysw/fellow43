@@ -1,0 +1,4 @@
+<template name="temp3">
+  <text>姓名：{{name}}</text>
+  <text>年龄：{{age}}</text>
+</template>
