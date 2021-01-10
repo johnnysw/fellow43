@@ -1,3 +1,4 @@
+"use strict";
 class Person {
     constructor(name) {
         this.age = 18; //private私有属性
@@ -40,6 +41,7 @@ let p1 = new Person('lisi');
 // console.log(p1.getGender('I love you'));
 // p1.gender = '男';
 // console.log(p1.gender);
+// 静态的属性和方法一般用于工具类的相关操作
 // console.log(Person.legs);
 // 类和抽象类
 // 设计抽象的父类，一定是用来做继承的！
@@ -86,9 +88,28 @@ class MachineCat extends Cat {
 // **多态：多种形态**
 // let flier: IFly = new MachineCat('多啦A梦');//new MonkeyKing('悟空');
 // console.log(flier.fly());
-function fly(flier) {
-    console.log(flier.fly());
-}
-fly(new MonkeyKing('悟空'));
-export {};
+// function fly(flier: IFly){
+//    console.log( flier.fly());
+// }
+// fly(new MonkeyKing('悟空'));
 // fly(new MachineCat('多啦A梦'));
+// 属性类型接口
+// interface IPerson{
+//     name: string;
+//     age: number;
+// }
+// function checkPersonInfo(person: IPerson){
+//     console.log(person.name, person.age);
+// }
+// checkPersonInfo(   {name: 'lisi', age: 23}   ); //没有任何问题
+// checkPersonInfo(  {name: 'lisi', age: 23, gender: 'male'}  );//多了一个gender属性
+// checkPersonInfo(   {name: 'lisi'}  ); //缺少ge属性
+// let obj = {name: 'lisi', age: 23, gender: 'male'} ; //此处将不再提示多了gender属性，目前仍是一个bug！
+// checkPersonInfo(obj);
+// 函数类型接口
+// interface IMath{
+//     (a: number, b: number): number;
+// }
+// let add: IMath = function(x: number, y: number){
+//     return x + y;
+// }

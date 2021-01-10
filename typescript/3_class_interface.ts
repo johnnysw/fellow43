@@ -1,5 +1,3 @@
-import { filter } from "../../node_modules/vue/types/umd";
-
 class Person{
     name: string; //属性前面如果不加任何修饰符，默认是public 
     private age: number = 18; //private私有属性
@@ -53,6 +51,7 @@ let p1 = new Person('lisi');
 // p1.gender = '男';
 // console.log(p1.gender);
 
+// 静态的属性和方法一般用于工具类的相关操作
 // console.log(Person.legs);
 
 // 类和抽象类
@@ -85,10 +84,11 @@ let cat = new Cat('咪咪');
 // let animal = new Animal('xixix'); //抽象类不能被实例化
 
 
-// 接口
+// 接口：就是用来做约束和制定标准的
 // 接口本身就是抽象的，接口中的所有的方法也都是抽象的
 interface IFly{
-    fly(): string;
+    fly(): string
+    // test(): void
 }
 
 class Monkey extends Animal{
@@ -121,31 +121,40 @@ class MachineCat extends Cat implements IFly{
 // let flier: IFly = new MachineCat('多啦A梦');//new MonkeyKing('悟空');
 // console.log(flier.fly());
 
-
-
-
-
-
-
-
-
-
-
-
-function fly(flier: MachineCat){
-   console.log( flier.fly());
+// function fly(flier: IFly){
+//    console.log( flier.fly());
    
-}
+// }
 
-
-
-
-
-
-
-fly(new MonkeyKing('悟空'));
+// fly(new MonkeyKing('悟空'));
 // fly(new MachineCat('多啦A梦'));
 
+// 属性类型接口
+// interface IPerson{
+//     name: string;
+//     age: number;
+// }
+
+// function checkPersonInfo(person: IPerson){
+//     console.log(person.name, person.age);
+    
+// }
+
+// checkPersonInfo(   {name: 'lisi', age: 23}   ); //没有任何问题
+// checkPersonInfo(  {name: 'lisi', age: 23, gender: 'male'}  );//多了一个gender属性
+// checkPersonInfo(   {name: 'lisi'}  ); //缺少ge属性
+// let obj = {name: 'lisi', age: 23, gender: 'male'} ; //此处将不再提示多了gender属性，目前仍是一个bug！
+// checkPersonInfo(obj);
+
+// 函数类型接口
+
+// interface IMath{
+//     (a: number, b: number): number;
+// }
+
+// let add: IMath = function(x: number, y: number){
+//     return x + y;
+// }
 
 
 
