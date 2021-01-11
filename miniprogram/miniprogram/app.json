@@ -5,7 +5,8 @@
     "pages/two/two",
     "pages/three/three",
     "pages/four/four",
-    "pages/five/five"
+    "pages/five/five",
+    "pages/todo/todo"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
