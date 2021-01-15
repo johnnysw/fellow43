@@ -4,3 +4,4 @@
   <text slot="slot2">world</text>
 </wc>
 <button bindtap="change" type="warn">change</button>
+<van-button type="primary">按钮</van-button>
