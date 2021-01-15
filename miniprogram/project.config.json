@@ -1,0 +1,106 @@
+{
+  "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": true,
+    "packNpmRelationList": [
+      {
+        "packageJsonPath": "./package.json",
+        "miniprogramNpmDistDir": "./miniprogram/"
+      }
+    ],
+    "minifyWXSS": true
+  },
+  "appid": "wxe684fee35e1795cc",
+  "projectname": "miniprogram",
+  "libVersion": "2.14.1",
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "db guide",
+          "pathName": "pages/databaseGuide/databaseGuide",
+          "query": ""
+        },
+        {
+          "name": "one",
+          "pathName": "pages/one/one",
+          "query": "id=66666",
+          "scene": null
+        },
+        {
+          "name": "two",
+          "pathName": "pages/two/two",
+          "query": "id=66666",
+          "scene": null
+        },
+        {
+          "name": "three",
+          "pathName": "pages/three/three",
+          "query": "id=66666",
+          "scene": null
+        },
+        {
+          "name": "four",
+          "pathName": "pages/four/four",
+          "query": "id=66666",
+          "scene": null
+        },
+        {
+          "name": "five",
+          "pathName": "pages/five/five",
+          "query": "id=66666",
+          "scene": null
+        },
+        {
+          "name": "todo",
+          "pathName": "pages/todo/todo",
+          "query": "id=66666",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

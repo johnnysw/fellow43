@@ -1,0 +1,24 @@
+<view class="add-box wrapper">
+  <input value="{{inpVal}}" bindinput="getVal" type="text" placeholder="请输入。。。" />
+  <button bindtap="add" class="add-btn" size="mini" type="primary">添加</button>
+</view>
+<view class="tool wrapper">
+  查看已完成事项:
+  <switch checked="{{isDone}}" bindchange="isDoneChange"></switch>
+</view>
+<view class="todo-list wrapper">
+  <view>序号</view>
+  <view>待办事项</view>
+  <view>操作</view>
+</view>
+<checkbox-group bindchange="checkChange">
+  <view class="todo-list wrapper" wx:for="{{todoList}}" wx:key="_id">
+    <view>{{index+1}}</view>
+    <checkbox value="{{item._id}}"></checkbox>
+    <view>{{item.title}}</view>
+    <button wx:if="{{!isDone}}" bindtap="finish" data-id="{{item._id}}" type="primary" size="mini">完成</button>
+    <button wx:else bindtap="delete" data-id="{{item._id}}" type="warn" size="mini">删除</button>
+  </view>
+</checkbox-group>
+<button bindtap="batchHandle" data-type="finish" type="primary">批量完成</button>
+<button bindtap="batchHandle" data-type="delete" type="warn">批量删除</button>

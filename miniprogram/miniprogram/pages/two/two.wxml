@@ -1,0 +1,7 @@
+<view class="title">页面二</view>
+<wc wx:if="{{isShow}}" bind:myEvent="getMsg" str="{{msg}}">
+  <text slot="slot1">hello</text>
+  <text slot="slot2">world</text>
+</wc>
+<button bindtap="change" type="warn">change</button>
+<van-button type="primary">按钮</van-button>

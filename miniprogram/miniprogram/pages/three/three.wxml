@@ -1,0 +1,5 @@
+<input bindinput="getIptVal" type="text" />
+<button bindtap="addHandle" type="primary">添加</button>
+<button bindtap="getHandle" type="warn">获取记录</button>
+<button bindtap="updateHandle" type="primary">修改记录</button>
+<button bindtap="delHandle" type="warn">删除记录</button>

@@ -1,0 +1,5 @@
+/* miniprogram/pages/two/two.wxss */
+.title{
+  font-size: 30px;
+  color: blue;
+}

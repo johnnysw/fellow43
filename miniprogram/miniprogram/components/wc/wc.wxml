@@ -1,0 +1,8 @@
+<view class="title">
+  <slot name="slot1"></slot>
+  组件 : {{str}}
+  <slot name="slot2"></slot>
+  <button bindtap="send" type="primary">咻咻</button>
+  {{num}}
+  <button bindtap="add">+1</button>
+</view>
