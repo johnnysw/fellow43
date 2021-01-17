@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #tbl, #tbl td{
+            border: 1px solid #000000;
+        }
+        #tbl{
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <h1>用户列表</h1>
+    <table id="tbl">
+        <tr>
+            <th>编号</th>
+            <th>用户名</th>
+            <th>密码</th>
+            <th>电话</th>
+            <th>操作</th>
+        </tr>
+        <%
+            for(let i=0; i<users.length; i++)
+            {
+                let user = users[i];
+        %>
+                <tr>
+                    <td><%=user.user_id%></td></td>
+                    <td><%=user.username%></td>
+                    <td><%=user.password%></td>
+                    <td><%=user.tel%></td>
+                    <td>
+                        <a href="userDetail?userId=<%=user.user_id%>">查看详情</a>
+                    </td>
+                </tr>
+        <%
+            }
+        %>
+        
+    </table>
+</body>
+</html>

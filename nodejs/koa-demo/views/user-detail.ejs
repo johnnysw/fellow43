@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-   <h1> <%=title%></h1>
+    <h1><%=user.username%></h1>
     <p>
-        <%=message%>
+        用户密码：<%=user.password%>
     </p>
-
-    <img src="img/1.jpg" alt="">
+    <p>
+        联系方式：<%=user.tel%>
+    </p>
+    <p>
+        创建时间：<%=user.create_time%>
+    </p>
 </body>
 </html>
