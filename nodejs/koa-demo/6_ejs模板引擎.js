@@ -5,7 +5,6 @@ const path = require("path");
 const app = new Koa();
 
 // 加载模板引擎
-console.log(__dirname);
 app.use(
   views(path.join(__dirname, "./views"), {
     extension: "ejs",
