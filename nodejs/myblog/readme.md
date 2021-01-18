@@ -45,10 +45,12 @@
 ## (五)开发流程
     1. 设计views页面
         figma原型：https://www.figma.com/file/Nc8rHlhHqenhluIeVDsMXm/MyBlog?node-id=1%3A18
-    2. 配置public静态资源文件
-    3. 设计和配置路由：
+    2. 设计和配置路由：
         3.1 "/"：进入index.ejs
         3.2 "/login": 进入login.ejs
         3.3 "/regist": 进入regist.ejs
-        将路由的代码放置在routes下的index.js模块中，减少app.js中的代码量
-    4. 
+        将路由的代码放置在routes下的index.js中，以减少app.js中的代码量
+    3. 正式开发
+        3.1 开发login功能
+            3.1.1 编写login.ejs页面
+            3.1.2 编写post方式的/login路由逻辑

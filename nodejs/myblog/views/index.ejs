@@ -3,9 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>首页</title>
+    <title>注册</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/index.css">
 </head>
 <body>
-    首页...
+    <div class="container">
+        <header>
+            <div class="title">MyBlog</div>
+            <div class="login-box">
+                <a href="#">登录</a> / <a href="#">注册</a>
+            </div>
+        </header>
+
+        <div class="blog-list">
+            <%
+                for(let i=0; i<blogs.length; i++)
+                {
+                    let blog = blogs[i];
+            %>
+            <div class="blog">
+                <h3 class="blog-title"><%=blog.title%></h3></h3>
+                <p class="blog-content"><%=blog.content%></p>
+                <span class="post-time"><%=blog.post_time%></span>
+            </div>
+            <%
+                }
+            %>
+            
+        </div>
+    </div>
 </body>
 </html>

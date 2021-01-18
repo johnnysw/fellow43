@@ -1,0 +1,12 @@
+.blog-list{
+    width: 815px;
+    margin: 20px auto;
+}
+.blog{
+    background: #cccccc;
+    padding: 20px;
+    margin: 20px 0;
+}
+.blog-title, .blog-content, .post-time{
+    margin: 20px 0;
+}
