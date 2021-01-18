@@ -1,0 +1,21 @@
+{
+  "name": "myblog",
+  "version": "1.0.0",
+  "description": "1. 登录/注册     2. 文章列表     3. 发表文章     4. 文章评论 ## (二)项目结构设计     1. node_modules: 各种npm包     2. views: 视图文件（html、ejs）     3. public         3.1 images: 存放图片         3.2 javascripts: 存放js文件         3.3 stylesheets: 存放css文件     4. routes: 路由文件     5. controllers: 控制器文件     6. models: 数据模型文件（数据库操作相关的文件）     7. config: 配置文件     8. app.js: 项目的启动(入口)文件     9. package.json: 项目的配置文件 ## (三)数据库设计     1. 名词解释         1.1 ER图（Entity Relationship): 用来描述数据库表结构之间的关系         1.2 主键(Primary Key): 用来确保表中的记录的唯一性         1.2 外键(Foreign Key): 用来维护父表和子表之间的关系，外键需要进行配置，外键的命名规范：fk_父表名_子表名_外键名",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/router": "^10.0.0",
+    "ejs": "^3.1.5",
+    "koa": "^2.13.1",
+    "koa-bodyparser": "^4.3.0",
+    "koa-static": "^5.0.0",
+    "koa-views": "^7.0.0",
+    "mysql": "^2.18.1"
+  }
+}

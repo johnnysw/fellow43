@@ -59,7 +59,7 @@ var pool = mysql.createPool({
 function query(sql) {
   return new Promise((resolve, reject) => {
     pool.getConnection(function (err, connection) {
-      if (err) throw err; // not connected!
+        if (error) reject(error); // not connected!
       // Use the connection
       connection.query(sql, function (error, results) {
         // When done with the connection, release it.
@@ -68,6 +68,7 @@ function query(sql) {
         if (error) {
           reject(error);
         } else {
+            
           resolve(results);
         }
         // Don't use the connection here, it has been returned to the pool.
