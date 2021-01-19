@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章详情</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/blog-detail.css">
+</head>
+<body>
+    <div class="container">
+        <%- include('header') %>
+
+        <div class="blog">
+            <div class="blog-title">
+                <h3><%=blog.title%></h3></h3>
+                <span>
+                    <%
+                        let postTime = blog.post_time;
+                        let postTimeStr = postTime.getFullYear() + "-" + (postTime.getMonth() + 1) + "-" + postTime.getDate();
+                    %>
+                    <%=postTimeStr%>
+                </span>
+            </div>
+            <div class="blog-content">
+                <%=blog.content%>
+            </div>
+            <div class="comments">
+                <h4>评论</h4>
+                <%
+                    for(let i=0; i<blog.comments.length; i++){
+                        let comment = blog.comments[i];
+                %>
+                <div class="comment">
+                    <div class="comment-content">
+                        <%=comment.comm_content%>
+                    </div>
+                    <div class="comment-info">
+                        <span class="userinfo"><%=comment.username%></span>
+                        <span class="post-time"><%=comment.comm_post_time%></span>
+                    </div>
+                </div>
+                <%
+                    }
+                %>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

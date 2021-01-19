@@ -1,0 +1,17 @@
+.blog{
+    margin: 20px auto;
+    padding: 20px;
+    background: #cccccc;
+}
+.blog-title{
+    padding: 10px;
+}
+.blog-content{
+    padding: 10px;
+}
+.comment{
+    padding: 20px;
+}
+.comment-info{
+    float: right;
+}

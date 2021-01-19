@@ -7,6 +7,7 @@ let controller = require('../controllers/blogController');
 // 首页路由
 router.get("/", controller.welcome);
 
+router.get("/blog/detail/:blogId", controller.getBlogDetail);
 
 
 module.exports = router;

@@ -2,9 +2,9 @@
     <div class="title">MyBlog</div>
     <div class="login-box">
         <%
-            if(user){
+            if(locals.user){
         %>
-                <%=user%>
+                <%=locals.user%>
         <%
             }else{
         %>

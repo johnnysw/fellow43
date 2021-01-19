@@ -12,10 +12,11 @@ const session = require('koa-session');
 
 const app = new Koa();
 
+
 // 引入路由模块
-const index = require('./routes');
 const blog = require('./routes/blog');
 const user = require('./routes/user');
+
 
 // 使用ctx.body解析中间件
 app.use(bodyParser())
@@ -34,7 +35,6 @@ app.use(staticPath(path.join(__dirname, "/public")));
 app.keys = ['myblog_session_key$$'];
 app.use(session(app));
 
-app.use(index.routes()).use(index.allowedMethods());
 app.use(blog.routes()).use(blog.allowedMethods());
 app.use(user.routes()).use(user.allowedMethods());
 

@@ -2,7 +2,7 @@ const userModel = require("../models/userModel");
 const model = require("../models/userModel");
 
 module.exports = {
-  async login(ctx) {
+  async login(ctx, next) {
     // 1. 接收表单数据
     // {username: 'lisi', pasword: '123456'}
     let { username, password } = ctx.request.body;
@@ -19,6 +19,7 @@ module.exports = {
         // redirect重定向：它会将页面的地址重新定向到指定的路由
         // 向session作用域中存放loginUser变量
         ctx.session.loginUser = username;
+        // ctx.state.loginedUser = username;
         ctx.redirect("/");
       } else {
         await ctx.render("error", {
