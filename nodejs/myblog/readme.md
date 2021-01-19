@@ -54,6 +54,12 @@
         3.1 开发login功能
             3.1.1 编写login.ejs页面
             3.1.2 编写post方式的/login路由逻辑
+        3.2 models中的方法命名规范：get查、save增、delete删、update改
 
 ## (六)补充知识
     1. redirect和render的区别：redirect是重定向，它会将页面的地址重新定向到新路由，它不能向页面传递数据；render是跳转，它不会重新定向地址，但是可以传递数据给页面
+    2. MVC(Model, View, Controller)
+        1. View：视图文件（用户可见的页面）
+        2. Controller：控制器文件，用来处理业务逻辑的，控制业务流程跳转
+        3. Model：数据模型，简单的来说就是和数据库操作有关的代码
+    3. session: 会话作用域

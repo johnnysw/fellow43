@@ -7,11 +7,15 @@ const path = require("path");
 const staticPath = require("koa-static");
 // 引入bodyparser
 const bodyParser = require('koa-bodyparser')
+// 引入session
+const session = require('koa-session');
 
 const app = new Koa();
 
 // 引入路由模块
-const router = require('./routes');
+const index = require('./routes');
+const blog = require('./routes/blog');
+const user = require('./routes/user');
 
 // 使用ctx.body解析中间件
 app.use(bodyParser())
@@ -26,7 +30,13 @@ app.use(
 // 配置静态资源目录
 app.use(staticPath(path.join(__dirname, "/public")));
 
-app.use(router.routes()).use(router.allowedMethods());
+// 配置session
+app.keys = ['myblog_session_key$$'];
+app.use(session(app));
+
+app.use(index.routes()).use(index.allowedMethods());
+app.use(blog.routes()).use(blog.allowedMethods());
+app.use(user.routes()).use(user.allowedMethods());
 
 app.listen(3000);
 console.log("start-quick is starting at port 3000");
