@@ -5,7 +5,7 @@ const views = require("koa-views");
 const path = require("path");
 // 引入koa-static
 const staticPath = require("koa-static");
-
+// 引入bodyparser
 const bodyParser = require('koa-bodyparser')
 
 const app = new Koa();
