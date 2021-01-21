@@ -6,3 +6,5 @@
     var cors = require('koa-cors');
     app.use(cors());
     ```
+2. 安装jsonwebtoken中间件
+    `npm install jsonwebtoken`
