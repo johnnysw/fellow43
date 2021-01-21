@@ -7,7 +7,7 @@ const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 var cors = require('koa-cors');
 
-const index = require('./routes/index')
+const blogs = require('./routes/blogs')
 const users = require('./routes/users')
 
 // 处理跨域
@@ -44,7 +44,7 @@ app.use(async (ctx, next) => {
 })
 
 // routes
-app.use(index.routes(), index.allowedMethods())
+app.use(blogs.routes(), blogs.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
 
 // error-handling

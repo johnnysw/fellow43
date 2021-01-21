@@ -1,12 +1,12 @@
 <template>
   <div class="container">
     <div class="blog-list">
-      <div class="blog">
+      <div class="blog" v-for="item in blogList" :key="item.blogId">
         <h3 class="blog-title">
-          <a href="/blog/detail/">22</a>
+          <a href="/blog/detail/">{{item.title}}</a>
         </h3>
-        <p class="blog-content">33</p>
-        <span class="post-time">444</span>
+        <p class="blog-content">{{item.content}}</p>
+        <span class="post-time">{{item.postTime}}</span>
       </div>
     </div>
   </div>
@@ -14,12 +14,23 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+        blogList: []
+    };
+  },
+  created(){
+      this.getData();
   },
   methods: {
     getData() {
-      this.$http.get("http://localhost:3000/user/list").then((res) => {
-          res.data
+    this.axios({
+        url: "http://localhost:3000/blog/list",
+        headers: {
+            "Authorization": localStorage.getItem('mytoken')
+        }
+    }).then((res) => {
+          let {blogs} = res.data;
+          this.blogList = blogs;
       });
     },
   },
