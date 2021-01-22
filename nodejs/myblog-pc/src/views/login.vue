@@ -31,8 +31,8 @@ export default {
           password: this.password,
         })
         .then((res) => {
-            let {status, token} = res.data;
-          if (status == "success") {
+            let {state, token} = res.data;
+          if (state == "success") {
             //   登录成功
             // 存储token
             this.$store.dispatch('setToken', token)

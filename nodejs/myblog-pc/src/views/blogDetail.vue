@@ -2,10 +2,10 @@
   <div class="container">
     <div class="blog">
       <div class="blog-title">
-        <h3></h3>
-        <span> </span>
+        <h3>{{blog.title}}</h3>
+        <span>{{blog.post_time}}</span>
       </div>
-      <div class="blog-content"></div>
+      <div class="blog-content">{{blog.content}}</div>
       <div class="comments">
         <h4>评论</h4>
         <div class="comment">
@@ -22,9 +22,38 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      blog: ""
+    };
   },
-  methods: {},
+  created(){
+    this.getBlogDetail();
+  },
+  methods: {
+    getBlogDetail() {
+      let blogId = this.$route.params.blogId;
+      this
+        .axios({
+          url: "http://localhost:3000/blog/detail",
+          params: {
+            blogId: blogId
+          },
+          headers: {
+            Authorization: localStorage.getItem("mytoken"),
+          },
+        })
+        .then((res) => {
+          let { state, blog} = res.data;
+          if (state == "success") {
+            this.blog = blog;
+          }
+        })
+        .catch((err) => {
+          // alert('请求未授权-catch!');
+          this.$router.push("/login");
+        });
+    },
+  },
 };
 </script>
 

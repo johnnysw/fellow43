@@ -42,8 +42,9 @@ export default {
           }
         })
         .catch((err) => {
-            alert('请求未授权-catch!');
-            // console.log('haha', err);
+            // alert('请求未授权-catch!');
+            this.$router.push('/login');
+
         });
     },
   },

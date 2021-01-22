@@ -1,6 +1,5 @@
 const router = require('koa-router')()
-let jwt = require('jsonwebtoken');
-
+const {createToken} = require('../auth');
 
 router.prefix('/user')
 
@@ -15,9 +14,9 @@ router.post('/login', function (ctx, next) {
       userId: Math.random(),
       username,
     };
-    var token = jwt.sign(payload, secretKey, {expiresIn: 120});
+    var token = createToken(payload);
     ctx.body = {
-      status: "success",
+      state: "success",
       token
     }
   }else{
