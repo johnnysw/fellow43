@@ -8,3 +8,12 @@
     ```
 2. 安装jsonwebtoken中间件
     `npm install jsonwebtoken`
+    - 使用jwt.sign(payload, secretOrPrivateKey)来生成token
+    - 使用下面的代码来验证token
+    ```
+    try {
+        jwt.verify(token, 'wrong-secret');
+    } catch(err) {
+    // err
+    } 
+    ```

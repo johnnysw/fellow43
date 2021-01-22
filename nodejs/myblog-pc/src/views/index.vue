@@ -3,10 +3,13 @@
     <div class="blog-list">
       <div class="blog" v-for="item in blogList" :key="item.blogId">
         <h3 class="blog-title">
-          <a href="/blog/detail/">{{item.title}}</a>
+          <!-- <a href="/blog/detail/">{{item.title}}</a> -->
+          <router-link :to="{ path: '/blog/detail/' + item.blogId }">{{
+            item.title
+          }}</router-link>
         </h3>
-        <p class="blog-content">{{item.content}}</p>
-        <span class="post-time">{{item.postTime}}</span>
+        <p class="blog-content">{{ item.content }}</p>
+        <span class="post-time">{{ item.postTime }}</span>
       </div>
     </div>
   </div>
@@ -15,23 +18,33 @@
 export default {
   data() {
     return {
-        blogList: []
+      blogList: [],
     };
   },
-  created(){
-      this.getData();
+  created() {
+    this.getData();
   },
   methods: {
     getData() {
-    this.axios({
+      this.axios({
         url: "http://localhost:3000/blog/list",
         headers: {
-            "Authorization": localStorage.getItem('mytoken')
-        }
-    }).then((res) => {
-          let {blogs} = res.data;
-          this.blogList = blogs;
-      });
+          Authorization: localStorage.getItem("mytoken"),
+        },
+      })
+        .then((res) => {
+          let {state} = res.data;
+          if(state == "auth-fail"){
+              alert('请求未授权-then!');
+          }else if(state == "success"){
+              let { blogs } = res.data;
+            this.blogList = blogs;
+          }
+        })
+        .catch((err) => {
+            alert('请求未授权-catch!');
+            // console.log('haha', err);
+        });
     },
   },
 };

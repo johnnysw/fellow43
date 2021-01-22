@@ -6,20 +6,22 @@ const path = require("path");
 // 引入koa-static
 const staticPath = require("koa-static");
 // 引入bodyparser
-const bodyParser = require('koa-bodyparser')
+const bodyParser = require("koa-bodyparser");
 // 引入session
-const session = require('koa-session');
+const session = require("koa-session");
 
 const app = new Koa();
 
 
+
 // 引入路由模块
-const blog = require('./routes/blog');
-const user = require('./routes/user');
+const blog = require("./routes/blog");
+const user = require("./routes/user");
+
 
 
 // 使用ctx.body解析中间件
-app.use(bodyParser())
+app.use(bodyParser());
 
 // 加载模板引擎
 app.use(
@@ -32,8 +34,22 @@ app.use(
 app.use(staticPath(path.join(__dirname, "/public")));
 
 // 配置session
-app.keys = ['myblog_session_key$$'];
+app.keys = ["myblog_session_key$$"];
 app.use(session(app));
+
+
+app.use(async (ctx, next) => {
+  if (ctx.url == "/login" || ctx.url == "/regist") {
+    await next();
+  } else {
+    let loginUser = ctx.session.loginUser;
+    if (loginUser) {
+      await next();
+    } else {
+      ctx.redirect("/login");
+    }
+  }
+});
 
 app.use(blog.routes()).use(blog.allowedMethods());
 app.use(user.routes()).use(user.allowedMethods());

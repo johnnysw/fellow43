@@ -14,7 +14,9 @@ router.get(
       } catch(err) {
         // err
         ctx.status = 401;
-        ctx.body = "token不存在或已过期";
+        ctx.body = {
+          state: 'auth-fail'
+        };
       }
     }
     
@@ -26,6 +28,7 @@ router.get(
       { blogId: 33, title: "标题33", content: "内容33", postTime: new Date() },
     ];
     ctx.body = {
+      state: 'success',
       blogs,
     };
   }
