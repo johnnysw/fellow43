@@ -26,25 +26,16 @@ export default {
   },
   methods: {
     getData() {
-      this.axios({
-        url: "http://localhost:3000/blog/list",
-        headers: {
-          Authorization: localStorage.getItem("mytoken"),
-        },
-      })
+      this.$http
+        .get("/blog/list")
         .then((res) => {
-          let {state} = res.data;
-          if(state == "auth-fail"){
-              alert('请求未授权-then!');
-          }else if(state == "success"){
-              let { blogs } = res.data;
+          let { state } = res.data;
+          if (state == "auth-fail") {
+            alert("请求未授权-then!");
+          } else if (state == "success") {
+            let { blogs } = res.data;
             this.blogList = blogs;
           }
-        })
-        .catch((err) => {
-            // alert('请求未授权-catch!');
-            this.$router.push('/login');
-
         });
     },
   },

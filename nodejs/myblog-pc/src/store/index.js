@@ -1,21 +1,22 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
     token: ""
   },
-  mutations: {
-  },
+  mutations: {},
   actions: {
-    setToken:(state, token) => {
+    setToken: (state, token) => {
       state.token = token;
-      console.log(state.token);
-      localStorage.setItem('mytoken', token)
+      localStorage.setItem("mytoken", token);
+    },
+    logout: state => {
+      state.token = null;
+      localStorage.removeItem('mytoken');
     }
   },
-  modules: {
-  }
-})
+  modules: {}
+});

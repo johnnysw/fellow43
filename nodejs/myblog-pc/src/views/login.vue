@@ -26,7 +26,7 @@ export default {
   methods: {
     doLogin() {
       this.$http
-        .post("http://localhost:3000/user/login", {
+        .post("/user/login", {
           username: this.username,
           password: this.password,
         })

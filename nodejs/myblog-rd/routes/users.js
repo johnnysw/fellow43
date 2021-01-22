@@ -3,8 +3,6 @@ const {createToken} = require('../auth');
 
 router.prefix('/user')
 
-let  secretKey = "**my_secret_key$$";
-
 router.post('/login', function (ctx, next) {
   let {username, password} = ctx.request.body;
   if(username == 'lisi' && password == "123456"){
