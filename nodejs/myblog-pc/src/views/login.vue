@@ -31,9 +31,11 @@ export default {
           password: this.password,
         })
         .then((res) => {
-            let {state, token} = res.data;
+            let {state, token, user} = res.data;
           if (state == "success") {
             //   登录成功
+            // 存登录用户信息
+            this.$store.commit('storeLoginUser', user);
             // 存储token
             this.$store.dispatch('setToken', token)
             this.$router.push('/');

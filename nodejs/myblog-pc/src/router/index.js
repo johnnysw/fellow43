@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Index from '../views/index.vue'
 import Login from '../views/login.vue'
 import BlogDetail from '../views/blogDetail.vue'
+import PostBlog from '../views/postBlog.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/blog/detail/:blogId',
     name: 'BlogDetail',
     component: BlogDetail
+  },
+  {
+    path: '/blog/post',
+    name: 'PostBlog',
+    component: PostBlog
   },
 ]
 

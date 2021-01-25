@@ -1,5 +1,7 @@
 import axios from "axios";
 import store from '../store'
+import app from '../main'
+
 
 const instance = axios.create({
   baseURL: "http://localhost:3000",
@@ -31,7 +33,7 @@ instance.interceptors.response.use(
     console.log(status);
     if(status == 401){
         store.dispatch('logout');
-        location.href = "/login";
+        app.$router.push('/login'); //这里直接使用app来引用vue实例
     }
     return Promise.reject(error);
   }
