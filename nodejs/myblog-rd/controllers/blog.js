@@ -15,16 +15,21 @@ module.exports = {
     }
   },
   listBlog: async (ctx, next) => {
-    let results = await blogModel.getBlogs();
-    if (results.length > 0) {
-      ctx.body = {
-        state: "success",
-        blogs: results,
-      };
-    } else {
-      ctx.body = {
-        state: "fail",
-      };
+    try {
+      let results = await blogModel.getBlogs();
+      if (results.length > 0) {
+        ctx.body = {
+          state: "success",
+          blogs: results,
+        };
+      } else {
+        ctx.body = {
+          state: "fail",
+        };
+      }
+    }catch(err){
+      ctx.status = 500;
+      console.log(err);
     }
   },
 };

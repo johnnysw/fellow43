@@ -33,6 +33,7 @@ instance.interceptors.response.use(
     console.log(status);
     if(status == 401){
         store.dispatch('logout');
+        // location.href = '/login';
         app.$router.push('/login'); //这里直接使用app来引用vue实例
     }
     return Promise.reject(error);

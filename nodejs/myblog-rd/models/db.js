@@ -20,7 +20,7 @@ module.exports = {
           connection.query(sql, values, function (error, results) {
             connection.release(); //释放连接，放回pool中
             if (error) {
-              reject(err);
+              reject(error);
             } else {
               resolve(results);
             }

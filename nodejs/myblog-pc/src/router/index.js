@@ -4,6 +4,7 @@ import Index from '../views/index.vue'
 import Login from '../views/login.vue'
 import BlogDetail from '../views/blogDetail.vue'
 import PostBlog from '../views/postBlog.vue'
+import Error from '../views/error.vue'
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,11 @@ const routes = [
     path: '/blog/post',
     name: 'PostBlog',
     component: PostBlog
+  },
+  {
+    path: '*',
+    name: 'Error',
+    component: Error
   },
 ]
 

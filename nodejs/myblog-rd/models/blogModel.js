@@ -9,6 +9,6 @@ module.exports = {
         });
     },
     getBlogs(){
-        return db.query("select * from t_blog order by post_time desc");
+        return db.query("select * from t_blog111 order by post_time desc");
     }
 }
